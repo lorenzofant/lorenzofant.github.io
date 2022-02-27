@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Population Genetics on Will Shoemaker</title>
+    <link>https://wrshoemaker.github.io/tags/population-genetics/</link>
+    <description>Recent content in Population Genetics on Will Shoemaker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 14 Apr 2017 21:58:00 -0500</lastBuildDate>
+    
+	<atom:link href="https://wrshoemaker.github.io/tags/population-genetics/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>#1 Blog post</title>
+      <link>https://wrshoemaker.github.io/blog/number_1/</link>
+      <pubDate>Fri, 14 Apr 2017 21:58:00 -0500</pubDate>
+      
+      <guid>https://wrshoemaker.github.io/blog/number_1/</guid>
+      <description>Just got my personal website up and running thanks to Hugo and the excellent documentation provided by blogdown. Aiming to infrequently post updates, bits of cool code, etc. on here.</description>
+    </item>
+    
+  </channel>
+</rss>

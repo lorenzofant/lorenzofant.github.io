@@ -1,79 +1,79 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
+
   <url>
-    <loc>https://wrshoemaker.github.io/blog/number_1/</loc>
+    <loc>https://lorenzofant.github.io/blog/number_1/</loc>
     <lastmod>2017-04-14T21:58:00-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
-  
+
   <url>
-    <loc>https://wrshoemaker.github.io/blog/</loc>
+    <loc>https://lorenzofant.github.io/blog/</loc>
     <lastmod>2017-03-02T12:00:00-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
-  
+
   <url>
-    <loc>https://wrshoemaker.github.io/research/</loc>
+    <loc>https://lorenzofant.github.io/research/</loc>
     <lastmod>2017-03-02T12:00:00-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
-  
+
   <url>
-    <loc>https://wrshoemaker.github.io/about/</loc>
+    <loc>https://lorenzofant.github.io/about/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
-  
+
   <url>
-    <loc>https://wrshoemaker.github.io/categories/</loc>
+    <loc>https://lorenzofant.github.io/categories/</loc>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
-  
+
   <url>
-    <loc>https://wrshoemaker.github.io/tags/evolution/</loc>
+    <loc>https://lorenzofant.github.io/tags/evolution/</loc>
     <lastmod>2017-04-14T21:58:00-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
-  
+
   <url>
-    <loc>https://wrshoemaker.github.io/</loc>
+    <loc>https://lorenzofant.github.io/</loc>
     <lastmod>2017-04-14T21:58:00-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
-  
+
   <url>
-    <loc>https://wrshoemaker.github.io/tags/microbiology/</loc>
+    <loc>https://lorenzofant.github.io/tags/microbiology/</loc>
     <lastmod>2017-04-14T21:58:00-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
-  
+
   <url>
-    <loc>https://wrshoemaker.github.io/tags/population-genetics/</loc>
+    <loc>https://lorenzofant.github.io/tags/population-genetics/</loc>
     <lastmod>2017-04-14T21:58:00-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
-  
+
   <url>
-    <loc>https://wrshoemaker.github.io/categories/r/</loc>
+    <loc>https://lorenzofant.github.io/categories/r/</loc>
     <lastmod>2017-04-14T21:58:00-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
-  
+
   <url>
-    <loc>https://wrshoemaker.github.io/tags/</loc>
+    <loc>https://lorenzofant.github.io/tags/</loc>
     <lastmod>2017-04-14T21:58:00-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
-  
+
 </urlset>

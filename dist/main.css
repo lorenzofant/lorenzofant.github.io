@@ -5,7 +5,7 @@ figcaption,figure,main{display:block}
 figure{margin:1em 40px}
 hr{box-sizing:content-box;height:0;overflow:visible}
 pre{font-family:monospace,monospace;font-size:1em}
-a{background-color:transparent;-webkit-text-decoration-skip:objects;text-decoration:none;hover:#fff}
+a{background-color:transparent;-webkit-text-decoration-skip:objects;text-decoration:none}
 abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}
 b,strong{font-weight:inherit;font-weight:bolder}
 code,kbd,samp{font-family:monospace,monospace;font-size:1em}

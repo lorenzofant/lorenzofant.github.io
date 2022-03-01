@@ -2257,19 +2257,19 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
 
 /* Dropdown button */
 .dropdown .dropbtn {
-  font-size: 16px;
+  font-size: 1.5rem;
   border: none;
   outline: none;
-  color: white;
-  padding: 14px 16px;
+  color: #f4f4f4;
+  /*padding: 14px 16px;*/
   background-color: inherit;
   font-family: inherit; /* Important for vertical align on mobile phones */
   margin: 0; /* Important for vertical align on mobile phones */
 }
 
 /* Add a red background color to navbar links on hover */
-.navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
+.navbar a:hover, .dropdown:active .dropbtn {
+  background-color: inherit;
 }
 
 /* Dropdown content (hidden by default) */
@@ -2294,7 +2294,8 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
 
 /* Add a grey background color to dropdown links on hover */
 .dropdown-content a:hover {
-  background-color: #ddd;
+  background-color: inherit;
+  color: #f4f4f4
 }
 
 /* Show the dropdown menu on hover */

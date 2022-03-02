@@ -2297,11 +2297,8 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
 
 /* Add a grey background color to dropdown links on hover */
 .dropdown-content a:hover {
-  background-color: inherit;
-  color: black
+  color: black;
 }
 
 /* Show the dropdown menu on hover */
-.dropdown:checked .dropdown-content {
-  display: block;
-}
+.show {display:block;}

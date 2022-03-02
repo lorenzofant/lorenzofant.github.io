@@ -2235,8 +2235,9 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
 /* Navbar container */
 .navbar {
   overflow: hidden;
-  background-color: #333;
-  font-family: monospace,monospace;
+  background-color: none;
+  font-family: inherit;
+  padding: 1rem 2rem;
 }
 
 /* Links inside the navbar */
@@ -2275,21 +2276,22 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
 /* Dropdown content (hidden by default) */
 .dropdown-content {
   display: none;
-  position: fixed;
+  right:0;
+  position: absolute;
   background-color: #f4f4f4;
-  min-width: 160px;
+  min-width: 100%;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
-  float: none;
+  float: center;
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
-  text-align: right;
+  text-align: center;
 }
 
 /* Add a grey background color to dropdown links on hover */

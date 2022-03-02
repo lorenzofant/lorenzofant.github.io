@@ -2242,12 +2242,8 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
 
 /* Links inside the navbar */
 .navbar a {
-  float: left;
-  font-size: 1.5rem;
   color: hsla(0,0%,100%,.9);
-  text-align: center;
   padding: 14px 16px;
-  text-decoration: none;
 }
 
 /* The dropdown container */
@@ -2266,11 +2262,15 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
   background-color: inherit;
   font-family: inherit; /* Important for vertical align on mobile phones */
   margin: 0; /* Important for vertical align on mobile phones */
+  border-bottom: 1px solid transparent;
 }
 
 /* Add a red background color to navbar links on hover */
-.navbar a:hover, .dropdown:active .dropbtn {
-  background-color: inherit;
+.navbar a:hover{
+  color: white;
+}
+.dropdown:active .dropbtn {
+  background-color: #f4f4f4;
 }
 
 /* Dropdown content (hidden by default) */
@@ -2279,15 +2279,16 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
   right:0;
   position: absolute;
   background-color: #f4f4f4;
-  min-width: 100%;
+  width: 100%;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  border-bottom: 1px solid transparent;
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
   float: center;
-  color: black;
+  color: grey;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -2301,6 +2302,6 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
 }
 
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
+.dropdown:checked .dropdown-content {
   display: block;
 }

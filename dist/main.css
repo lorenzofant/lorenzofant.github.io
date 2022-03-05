@@ -2242,7 +2242,7 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
 /* Links inside the navbar */
 .navbar a {
   color: hsla(0,0%,100%,.9);
-  padding: 14px 0px;
+  padding: 0px 0px;
 }
 
 /* The dropdown container */

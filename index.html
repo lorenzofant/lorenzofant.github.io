@@ -44,8 +44,13 @@
 								<li class="dn db-l fr f5 f3-ns pr4"><a href="https://lorenzofant.github.io" title="Home page"> Home </a></li>
 
 									<div class="dropdown pr4-l dib dn-l">
-										<button onclick="myFunction()" class="dropbtn">Menu
+										<div class="container" onclick="myFunctionB(this)">
+											<button onclick="myFunction()" class="dropbtn">
+											  <div class="bar1"></div>
+											  <div class="bar2"></div>
+											  <div class="bar3"></div>
 										</button>
+									</div>
 										<div id="myDropdown" class="dropdown-content">
 
 												<p><a href="https://lorenzofant.github.io" title="Home page"> Home </a></p>
@@ -84,6 +89,9 @@
 				      var openDropdown = dropdowns[i];
 				      if (openDropdown.classList.contains('show')) {
 				        openDropdown.classList.remove('show');}}}}
+						function myFunctionB(x) {
+							x.classList.toggle("change");
+							}
 			</script>
 		</header>
 

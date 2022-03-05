@@ -2236,13 +2236,13 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
   overflow: hidden;
   background-color: none;
   font-family: inherit;
-  padding: 1rem 2rem;
+  padding: 1rem 1rem;
 }
 
 /* Links inside the navbar */
 .navbar a {
   color: hsla(0,0%,100%,.9);
-  padding: 14px 16px;
+  padding: 14px 0px;
 }
 
 /* The dropdown container */
@@ -2261,7 +2261,6 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
   background-color: inherit;
   font-family: inherit; /* Important for vertical align on mobile phones */
   margin: 0; /* Important for vertical align on mobile phones */
-  border-bottom: 1px solid transparent;
 }
 
 /* Add a red background color to navbar links on hover */

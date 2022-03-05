@@ -2233,16 +2233,15 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
 .linkedin:hover{fill:#0a66c2}.twitter:hover{fill:#55acee}.strava:hover{fill:#e95950}.youtube:hover{fill:#b00}.orcid:hover{fill:#a6ce39}.researchgate:hover{fill:#04d4ac}
 /* Navbar container */
 .navbar {
-  overflow: hidden;
   background-color: none;
   font-family: inherit;
-  padding: 1rem 1rem;
+  padding: 0;
 }
 
 /* Links inside the navbar */
 .navbar a {
   color: hsla(0,0%,100%,.9);
-  padding: 0px 0px;
+  padding: 0;
 }
 
 /* The dropdown container */
@@ -2261,6 +2260,11 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
   background-color: inherit;
   font-family: inherit; /* Important for vertical align on mobile phones */
   margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Dropdown button */
+.dropdown:hover .dropbtn:hover {
+  color: white;
 }
 
 /* Add a red background color to navbar links on hover */

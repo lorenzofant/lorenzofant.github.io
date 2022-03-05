@@ -18,7 +18,6 @@ audio:not([controls]){display:none;height:0}
 img{border-style:none}
 svg:not(:root){overflow:hidden}
 button,input,optgroup,select,textarea{margin:0}
-nav:{display: inline}
 button,input{overflow:visible}
 button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}
 legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}
@@ -2235,15 +2234,19 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
 .navbar {
   background-color: none;
   font-family: inherit;
-  padding: 0;
+  margin: 0;
+  width: 100%;
+  padding: 1rem 0rem;
 }
 
 /* Links inside the navbar */
 .navbar a {
   color: hsla(0,0%,100%,.9);
-  padding: 0;
 }
 
+.navbar a:hover{
+  color: white;
+}
 /* The dropdown container */
 .dropdown {
   float: right;
@@ -2259,7 +2262,7 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
   /*padding: 14px 16px;*/
   background-color: inherit;
   font-family: inherit; /* Important for vertical align on mobile phones */
-  margin: 0; /* Important for vertical align on mobile phones */
+  margin: 0;
 }
 
 /* Dropdown button */
@@ -2268,9 +2271,6 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
 }
 
 /* Add a red background color to navbar links on hover */
-.navbar a:hover{
-  color: white;
-}
 .dropdown:active .dropbtn {
   background-color: #f4f4f4;
 }

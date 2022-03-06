@@ -2259,7 +2259,7 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
   border: none;
   outline: none;
   color: hsla(0,0%,100%,.9);
-  /*padding: 14px 16px;*/
+  padding: 0px 10px;
   background-color: inherit;
   font-family: inherit; /* Important for vertical align on mobile phones */
   margin: 0;
@@ -2271,7 +2271,7 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
 }
 
 /* Add a red background color to navbar links on hover */
-.dropdown:active .dropbtn {
+.dropdown:active {
   background-color: #f4f4f4;
 }
 
@@ -2405,6 +2405,9 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
 .container {
   display: inline-block;
   cursor: pointer;
+  background-color: none;
+  height: 30px;
+  height: 40px;
 }
 
 .bar1, .bar2, .bar3 {
@@ -2415,6 +2418,7 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
   margin-bottom: 6px;
   transition: 0.4s;
 }
+
 
 .change .bar1 {
   -webkit-transform: rotate(-45deg) translate(-9px, 6px);

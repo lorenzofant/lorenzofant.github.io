@@ -106,52 +106,76 @@
             </div>
          </article>
 					-->
-					<div class="flex flex-column flex-row-l">
-						<div class="pr3-ns mb4 mb0-ns w-100 w-40-l">
-							<!-- Slideshow container -->
-							<div class="slideshow-container">
 
-								<!-- Full-width images with number and caption text -->
-								<div class="mySlides fade">
-									<div class="numbertext">1 / 3</div>
-									<img src="https://lorenzofant.github.io/images/ukraine.jpg" style="width:100%">
+					<div class="mw8 center">
+						<section class="mt5">
+								<div class="slideshow-container">
+									<!-- Full-width images with number and caption text -->
+									<div class="mySlides fade">
+										<div class="numbertext">1 / 2</div>
+										<div class="w-80 mb4 bg-white">
+											<h3 class="f3 near-black">
+												<a href="https://arxiv.org/abs/2202.02787" class="link black dim">
+													 Stable cooperation emerges in stochaastic multiplicative growth
+												</a>
+											</h3>
+											<div class="flex">
+												<div class="pr3-ns mb4 mb0-ns w-40 w-40-ns">
+													<img src="https://lorenzofant.github.io/images/pannello_small.png" class="db" alt="image from #1 Blog post">
+												</div>
+												<div class="relative w-40 mb4 bg-white nested-copy-line-height">
+													<div class="bg-white mb3 pa4 gray overflow-hidden">
+														<div class="nested-links f5 lh-copy nested-copy-line-height">
+															 sdada
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
 									<div class="text">Caption Text</div>
-								</div>
-
-								<div class="mySlides fade">
-									<div class="numbertext">2 / 3</div>
-									<img src="https://lorenzofant.github.io/images/aboutme.jpg" style="width:100%">
-									<div class="text">Caption Two</div>
-								</div>
-
-								<div class="mySlides fade">
-									<div class="numbertext">3 / 3</div>
-									<img src="https://lorenzofant.github.io/images/ukraine.jpg" style="width:100%">
-									<div class="text">Caption Three</div>
+									</div>
+									<div class="mySlides fade">
+										<div class="numbertext">1 / 2</div>
+										<div class="w-80 mb4 bg-white">
+											<h3 class="f3 near-black">
+												<a href="https://arxiv.org/abs/2202.02787" class="link black dim">
+													 Eco-evolutionary dynamics lead to functionally robust and redundant communities
+												</a>
+											</h3>
+											<div class="flex">
+												<div class="pr3-ns mb4 mb0-ns w-40 w-40-ns">
+													<img src="https://lorenzofant.github.io/images/pannello_small.png" class="db" alt="image from #1 Blog post">
+												</div>
+												<div class="relative w-40 mb4 bg-white nested-copy-line-height">
+													<div class="bg-white mb3 pa4 gray overflow-hidden">
+														<div class="nested-links f5 lh-copy nested-copy-line-height">
+															 sdada
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									<div class="text">Caption Text</div>
+									</div>
+								<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+								<a class="next" onclick="plusSlides(1)">&#10095;</a>
 								</div>
 
 								<!-- Next and previous buttons -->
-								<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-								<a class="next" onclick="plusSlides(1)">&#10095;</a>
-							</div>
-							<br>
-
-							<!-- The dots/circles -->
-							<div style="text-align:center">
+								<br>
+								<!-- The dots/circles -->
+								<div style="text-align:center">
 								<span class="dot" onclick="currentSlide(1)"></span>
 								<span class="dot" onclick="currentSlide(2)"></span>
-								<span class="dot" onclick="currentSlide(3)"></span>
-							</div>
-						</div>
+								</div>
+								<div class="flex-l justify-between items-center center">
+								</div>
 
-						<div class="w-100 w-60-ns pl3-ns">
-							<h1 class="f3 fw1 athelas mt0 lh-title">No war in Ukraine</h1>
-							<div class="f6 f5-l lh-copy nested-copy-line-height">
-								This is now important
 							</div>
+	 					</section>
+ 					</div>
 
-						</div>
-					</div>
+
 
 
 
@@ -363,5 +387,35 @@
          </div>
       </footer>
       <script src="https://lorenzofant.github.io/dist/app.bundle.js" async></script>
+			<script>
+				var slideIndex = 1;
+				showSlides(slideIndex);
+
+				// Next/previous controls
+				function plusSlides(n) {
+				  showSlides(slideIndex += n);
+				}
+
+				// Thumbnail image controls
+				function currentSlide(n) {
+				  showSlides(slideIndex = n);
+				}
+
+				function showSlides(n) {
+				  var i;
+				  var slides = document.getElementsByClassName("mySlides");
+				  var dots = document.getElementsByClassName("dot");
+				  if (n > slides.length) {slideIndex = 1}
+				  if (n < 1) {slideIndex = slides.length}
+				  for (i = 0; i < slides.length; i++) {
+				      slides[i].style.display = "none";
+				  }
+				  for (i = 0; i < dots.length; i++) {
+				      dots[i].className = dots[i].className.replace(" active", "");
+				  }
+				  slides[slideIndex-1].style.display = "block";
+				  dots[slideIndex-1].className += " active";
+				}
+			</script>
    </body>
 </html>

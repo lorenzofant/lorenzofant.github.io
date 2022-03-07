@@ -16,6 +16,7 @@
       <link rel="shortcut icon" type ="image/x-icon" href="https://lorenzofant.github.io/images/foto.jpg"/>
       <link href="https://lorenzofant.github.io/research/index.xml" rel="alternate" type="application/rss+xml" title="Lorenzo Fant" />
       <link href="https://lorenzofant.github.io/research/index.xml" rel="feed" type="application/rss+xml" title="Lorenzo Fant" />
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
       <meta property="og:title" content="Research" />
       <meta property="og:description" content="Scaling from population genetics to quantitative traits." />
@@ -53,10 +54,10 @@
 								<li class="dn db-l fr f5 f3-ns pr4"><a href="/publications/" title="Publications page">	Publications </a></li>
 								<li class="dn db-l fr f5 f3-ns pr4"><a href="/research/" title="Research page">	Research </a></li>
 								<li class="dn db-l fr f5 f3-ns pr4"><a href="https://lorenzofant.github.io" title="Home page"> Home </a></li>
-
+								<li>
 									<div class="dropdown pr4-l dib dn-l">
-										<button onclick="myFunction()" class="dropbtn">Menu
-										</button>
+                    <button onclick="myFunction()" class="dropbtn">Menu
+                    </button>
 										<div id="myDropdown" class="dropdown-content">
 
 												<p><a href="https://lorenzofant.github.io" title="Home page"> Home </a></p>
@@ -104,14 +105,43 @@
          <article class="cf pa3 pa4-m pa4-l">
             <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links nested-img mid-gray">
 
-               <p><strong>Microbial biodiversity:</strong> </p>
-
-               <figure >
-                  <img src="/images/sad.png" />
-                  <figcaption>
-                     <h4>caption.</h4>
-                  </figcaption>
-               </figure>
+               <p>My main research interest is the modelling of fundamental community processes. I look for simple
+ways to describe complex ecological and evolutionary processes, trying to see which are the very
+relevant features required to describe data. In particular, I am focusing on two aspects of ecology
+and evolution: how is characterized a stable state of an ecological community and, on the other
+hand, how stochasticity affects the evolution of individual traits and the shape of communities.</p>
+<h3>Characterisation of bacterial communities</h3>
+<p>The first topic aims at understanding what are the fundamental quantities to describe a community,
+to what extent individuals and species are useful in such a description and what are the driving
+forces exerted by the environment. For instance, it has been shown that in real bacterial
+communities, the species composition is highly variable and non-reproducible. On the contrary, the
+functional composition, i.e. the total amount of genes encoding each cellular function, is stable
+across samples of similar environments. In [1] we showed that, in consumer-resource models, the
+functional composition is determined by the amount of each resource provided to the system
+whereas the species abundances are free to fluctuate. We analyzed the system both analytically and
+numerically with a clear focus on the core biological problem. The setting seems promising and the
+code developed ease many possible prosecutions. For example, it is still to be understood how
+fluctuations affect the system and to connect our results to real-life experiments. One of the most
+appealing possibilities to me is deepening the effects of cross-feeding, the process transforming a
+part of the resources absorbed by bacteria in different resources, let available to other species. We
+showed that, for what concerns the functional composition, cross-feeding can be simply seen as a
+modification of the quantities of the incoming resources. I plan to study the cross-feeding effects on
+system stability: How does the stability of a community with a strong cross-feeding compare to the
+one of a community that doesn’t transform the resources?</p>
+<h3>Cooperation emergence and stability in fluctuating environments</h3>
+<p>The second topic considers at out of equilibrium communities. I look for relevant interactions
+modifying the community growth and fluctuations. Particularly, the model I am studying describes
+cooperation, sharing without any guaranteed return. The stability of cooperation has been a highly
+debated subject in many different fields. Nevertheless, we lately discovered [2] an unexpected
+property of stochastic multiplicative processes: cooperation is evolutionary stable among individuals
+growing according to a geometric Brownian motion. Given such a theoretical result I want now to
+explore whether it could shed new light on biological processes. Is this a relevant feature to consider
+when looking at systems of individuals that cooperate?
+Finally, as a side interest, I would also like to explore the social and economical consequences of the
+former project. Geometric Brownian motion is often used in economics to describe stock markets
+and economic agents. I would like to investigate how cooperation stability could affect economical
+policies. For example: what are the consequences on optimal taxation/redistribution policies?
+</p>
 
             </div>
          </article>

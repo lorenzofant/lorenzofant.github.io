@@ -2270,6 +2270,28 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
   color: white;
 }
 
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 4px;
+  background-color: hsla(0,0%,100%,.9);
+  color: hsla(0,0%,100%,.9);
+  margin-bottom: 6px;
+  transition: 0.4s;
+  z-index: -1;
+}
+
+
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-7px, -6px);
+  transform: rotate(45deg) translate(-7px, -6px);
+}
 /* Add a red background color to navbar links on hover */
 .dropdown:active {
   background-color: #f4f4f4;
@@ -2401,33 +2423,47 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
 }
 
 /* Menu botton */
-
-.container {
-  display: inline-block;
-  cursor: pointer;
+.mobile-container {
+  max-width: 480px;
+  margin: auto;
   background-color: none;
-  height: 30px;
-  height: 40px;
+  height: 500px;
+  color: white;
+  border-radius: 10px;
 }
 
-.bar1, .bar2, .bar3 {
-  width: 35px;
-  height: 4px;
-  background-color: hsla(0,0%,100%,.9);
-  color: hsla(0,0%,100%,.9);
-  margin-bottom: 6px;
-  transition: 0.4s;
+.topnav {
+  overflow: hidden;
+  background-color: none;
+  position: relative;
 }
 
-
-.change .bar1 {
-  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-  transform: rotate(-45deg) translate(-9px, 6px);
+.topnav #myLinks {
+  display: none;
 }
 
-.change .bar2 {opacity: 0;}
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
 
-.change .bar3 {
-  -webkit-transform: rotate(45deg) translate(-7px, -6px);
-  transform: rotate(45deg) translate(-7px, -6px);
+.topnav a.icon {
+  background: none;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.active {
+  background-color: #04AA6D;
+  color: white;
 }

@@ -2125,7 +2125,7 @@ img{max-width:100%}
   .truncate-m{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
 @media screen and (min-width:60em){
   .measure-l{max-width:30em}
-  .measure-wide-l{max-width:34em}
+  .measure-wide-l{max-width:44em}
   .measure-narrow-l{max-width:20em}
   .indent-l{text-indent:1em;margin-top:0;margin-bottom:0}
   .small-caps-l{-webkit-font-feature-settings:"c2sc";font-feature-settings:"c2sc";font-variant:small-caps}

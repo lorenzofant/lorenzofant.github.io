@@ -2104,21 +2104,21 @@ img{max-width:100%}
   .f7-l{font-size:.75rem}}
 
 .measure{max-width:30em}
-.measure-wide{max-width:34em}
+.measure-wide{max-width:44em}
 .measure-narrow{max-width:20em}
 .indent{text-indent:1em;margin-top:0;margin-bottom:0}
 .small-caps{-webkit-font-feature-settings:"c2sc";font-feature-settings:"c2sc";font-variant:small-caps}
 .truncate{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 @media screen and (min-width:40em){
   .measure-ns{max-width:30em}
-  .measure-wide-ns{max-width:34em}
+  .measure-wide-ns{max-width:44em}
   .measure-narrow-ns{max-width:20em}
   .indent-ns{text-indent:1em;margin-top:0;margin-bottom:0}
   .small-caps-ns{-webkit-font-feature-settings:"c2sc";font-feature-settings:"c2sc";font-variant:small-caps}
   .truncate-ns{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
 @media screen and (min-width:40em) and (max-width:60em){
   .measure-m{max-width:30em}
-  .measure-wide-m{max-width:34em}
+  .measure-wide-m{max-width:44em}
   .measure-narrow-m{max-width:20em}
   .indent-m{text-indent:1em;margin-top:0;margin-bottom:0}
   .small-caps-m{-webkit-font-feature-settings:"c2sc";font-feature-settings:"c2sc";font-variant:small-caps}

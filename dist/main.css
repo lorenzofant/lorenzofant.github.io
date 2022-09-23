@@ -1,5 +1,5 @@
 html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
-body{font-family:avenir next,avenir,sans-serif; background-color:#f4f4f4}
+body{font-family:avenir next,avenir,sans-serif; background-color:#f4f4f4; color:#555}
 h1{font-size:2em;margin:.67em 0}
 figure{margin:1em 40px}
 hr{box-sizing:content-box;height:0;overflow:visible}
@@ -25,6 +25,7 @@ progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[ty
 summary{display:list-item}
 canvas{display:inline-block}
 img{max-width:100%}
+nav {position: fixed}
 #page-container {
   position: relative;
   min-height: 100vh;
@@ -40,6 +41,7 @@ img{max-width:100%}
   width: 100%;
   height: 4.5rem;            /* Footer height */
 }
+
 [hidden],template{display:none}
 .border-box,a,article,body,code,dd,div,dl,dt,fieldset,footer,form,h1,h2,h3,h4,h5,h6,header,html,input[type=email],input[type=number],input[type=password],input[type=tel],input[type=text],input[type=url],legend,li,main,ol,p,pre,section,table,td,textarea,th,tr,ul{box-sizing:border-box}
 
@@ -112,6 +114,16 @@ img{max-width:100%}
 @media screen and (min-width:60em){
   .cover-l{background-size:cover!important}
   .contain-l{background-size:contain!important}
+}
+
+.header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0);
+  opacity: 0.2;
 }
 
 .bg-center{background-position:50%}
@@ -560,6 +572,19 @@ img{max-width:100%}
   .dt-column-l{display:table-column}
   .dt-column-group-l{display:table-column-group}
   .dt--fixed-l{table-layout:fixed;width:100%}}
+@media screen and (max-width:60em){
+  .dn-s{display:none}
+  .di-s{display:inline}
+  .db-s{display:block}
+  .dib-s{display:inline-block}
+  .dit-s{display:inline-table}
+  .dt-s{display:table}
+  .dtc-s{display:table-cell}
+  .dt-row-s{display:table-row}
+  .dt-row-group-s{display:table-row-group}
+  .dt-column-s{display:table-column}
+  .dt-column-group-s{display:table-column-group}
+  .dt--fixed-s{table-layout:fixed;width:100%}}
 
 .flex{display:-webkit-box;display:-ms-flexbox;display:flex}
 .inline-flex{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex}
@@ -1253,6 +1278,13 @@ img{max-width:100%}
 .washed-yellow{color:#fffceb}
 .washed-red{color:#ffdfdf}
 .color-inherit{color:inherit}
+#test {
+  position: local;
+  width: auto;
+  height: auto;
+  background-color: rgba(0,0,0,.2);
+  z-index:1
+}
 .bg-black-90{background-color:rgba(0,0,0,.9)}
 .bg-black-80{background-color:rgba(0,0,0,.8)}
 .bg-black-70{background-color:rgba(0,0,0,.7)}
@@ -1273,6 +1305,8 @@ img{max-width:100%}
 .bg-white-20{background-color:hsla(0,0%,100%,.2)}
 .bg-white-10{background-color:hsla(0,0%,100%,.1)}
 .bg-black{background-color:#000}
+.bg-grad{height: 600px; /* Used to enable scrolling */
+  background: linear-gradient(90deg, hsla(0,0%,100%,.5) 20%, hsla(0,0%,100%,.5) 50%, rgba(0,0,0,.8) 10%);}
 .bg-near-black{background-color:#111}
 .bg-dark-gray{background-color:#333}
 .bg-mid-gray{background-color:#555}
@@ -2247,7 +2281,8 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
 .linkedin:hover{fill:#0a66c2}.twitter:hover{fill:#55acee}.strava:hover{fill:#e95950}.youtube:hover{fill:#b00}.orcid:hover{fill:#a6ce39}.researchgate:hover{fill:#04d4ac}
 /* Navbar container */
 .navbar {
-  background-color: none;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+  background-color: hsla(0,0%,100%,.6);
   font-family: inherit;
   margin: 0;
   width: 100%;
@@ -2256,12 +2291,52 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
 
 /* Links inside the navbar */
 .navbar a {
-  color: hsla(0,0%,100%,.9);
 }
 
 .navbar a:hover{
-  color: white;
-}
+  color: #333;
+
+  }.navbar-w {
+    background-color: none;
+    font-family: inherit;
+    margin: 0;
+    width: 100%;
+    padding: 1rem 0rem;
+  }
+
+  /* Links inside the navbar */
+  .navbar-w a {
+    color: hsla(0,0%,100%,.9);
+  }
+
+  .navbar-w a:hover{
+    color: hsla(0,0%,100%,1.);
+  }
+
+  }.navbar-t {
+    background-color: none;
+    font-family: inherit;
+    top: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    padding: 1rem 0rem;
+    display: inline;
+  }
+
+  /* Links inside the navbar */
+  .navbar-t a {
+    position: fixed;
+    display: inline;
+    top: 0;
+    color: #555;
+    float: right;
+  }
+
+  .navbar-t a:hover{
+    color: #333;
+  }
+
 /* The dropdown container */
 .dropdown {
   float: right;

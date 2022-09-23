@@ -129,12 +129,17 @@ nav {position: fixed}
 
 .bg-center{background-position:50%}
 .bg-center,.bg-top{background-repeat:no-repeat}
-.bg-top{background-position:top}
-.bg-right{background-position:100%}
-.bg-bottom,.bg-right{background-repeat:no-repeat;-webkit-background-size: cover;
+.bg-top{background-position:top;
+  -webkit-background-size: cover;
 -moz-background-size: cover;
 -o-background-size: cover;
 background-size: cover;}
+.bg-right{background-position:100%}
+.bg-bottom,.bg-right{background-repeat:no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;}
 .bg-bottom{background-position:bottom; width:100%;height: auto}
 .bg-left{background-repeat:no-repeat;background-position:0}
 @media screen and (min-width:40em){

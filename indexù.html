@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-		<title>Lorenzo Fant  | Stochastic Ecology and Evolution</title>
+		<title>Lorenzo Fant  | Post-Doc in Theoretical Ecology and Evolution</title>
 
 		<meta name="HandheldFriendly" content="True">
 		<meta name="MobileOptimized" content="320">
@@ -42,47 +42,60 @@
   <body class="ma0">
 		<div id="page-container">
 		<div id="content-wrap">
-		<header class="cover bg-top" style="background-image: url('https://lorenzofant.github.io/images/sicily_cut.jpg');">
-    	<div class="bg-black-50">
 
-				<nav class="navbar" role="navigation">
+		<header>
+		<nav class="navbar dn-l z-5" >
+			<ul class = "ph5-pl di">
+				<li class="db fl m0 f3 fw2 pl4-l"><a class="dark-gray" href="https://lorenzofant.github.io" title="Home page"> Lorenzo Fant </a></li>
 
-							<ul class = "ph3 ph5-l">
+				<li class="dn db-pl fr f4 pr4"><a class="mid-gray" class="small" href="/about/" title="About me page"> About me & Contacts </a></li>
+				<li class="dn db-pl fr f4 pr4"><a class="mid-gray" href="/publications/" title="Publications page">	Publications </a></li>
+				<li class="dn db-pl fr f4 pr4"><a class="mid-gray" href="/research/" title="Research interests page">	Research </a></li>
+				<li class="dn db-pl fr f4 pr4"><a class="mid-gray" href="https://lorenzofant.github.io" title="Home page"> Home </a></li>
+			</ul>
+			</nav>
+			<nav class="navbar-t dn db-l z-5" >
+			<div class="dropdown pr4">
 
-								<li class="db fl m0 f3 fw2 pl4-l"><a href="https://lorenzofant.github.io" title="Home page"> Lorenzo Fant </a></li>
-								<li class="dn db-l fr f5 f3-ns pr4"><a href="/about/" title="About me page"> About me & Contacts </a></li>
-								<li class="dn db-l fr f5 f3-ns pr4"><a href="/publications/" title="Publications page">	Publications </a></li>
-								<li class="dn db-l fr f5 f3-ns pr4"><a href="/research/" title="Research interests page">	Research </a></li>
-								<li class="dn db-l fr f5 f3-ns pr4"><a href="https://lorenzofant.github.io" title="Home page"> Home </a></li>
-									<div class="dropdown pr4-l dib dn-l">
-										<button onclick="myFunction()" class="dropbtn">Menu
-										</button>
-										<div id="myDropdown" class="dropdown-content">
+				<button onclick="myFunction()" class="dropbtn fr">Menu
+				</button>
+				<div id="myDropdown" class="dropdown-content mt4">
 
-												<p><a href="https://lorenzofant.github.io" title="Home page"> Home </a></p>
-												<p><a href="/research/" title="Research interests page"> Research </a></p>
-												<p><a href="/publications/" title="Publications page"> Publications & Talks</a></p>
-												<p><a href="/about/" title="About me page"> About me & Contacts	</a></p>
-
-										</div>
-									</div>
-
-							</ul>
-
-
-				</nav>
-
-				<div class="tc-ns pv4 pv6-l ph3">
-					<h1 class="f2 f-subheadline-l fw2 white-90 mb0 lh-title">
-						Stochastic Ecology and Evolution
-					</h1>
+						<p><a href="https://lorenzofant.github.io" title="Home page"> Home </a></p>
+						<p><a href="/research/" title="Research interests page"> Research </a></p>
+						<p><a href="/publications/" title="Publications page"> Publications & Talks</a></p>
+						<p><a href="/about/" title="About me page"> About me & Contacts	</a></p>
 
 				</div>
 			</div>
+	</nav>
+	<div id="bg-dis" class="bg-bottom" style="background-attachment: scroll; background-image: url('https://lorenzofant.github.io/images/sicily_cut.jpg');width:100%;height:auto;z-index:0;">
+
+    	<div id="test">
+				<div class="tc-ns pv6 pv6-l ph3">
+					<h1 class="f2 f-headline-l fw5 white-90 mb0 lh-title">
+						Lorenzo Fant
+					</h1>
+
+					<h2 class="f4 f2-l fw4 fw2-l white-90 mb0 lh-title">
+						Post-Doc in Theoretical Ecology and Evolution
+					</h2>
+
+				</div>
+			</div>
+		</div>
 
 			<script>
 				/* When the user clicks on the button,
 				toggle between hiding and showing the dropdown content */
+				window.addEventListener('scroll', function() {
+    var currScrollPos2 = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    if (currScrollPos2 > 50) {
+			document.getElementById('test').style.opacity = -currScrollPos2 / 80 + 2;
+			document.getElementById('bg-dis').style.opacity = -currScrollPos2 / 180 + 2;
+    }
+  }
+);
 				function myFunction() {
 					document.getElementById("myDropdown").classList.toggle("show");
 					document.getElementById("botton").classList.toggle("change");}
@@ -98,6 +111,8 @@
 				        	openDropdown.classList.remove('show');
 									var botton = document.getElementById('botton');
 									botton.classList.toggle('change');}}}}
+
+
 			</script>
 		</header>
 
@@ -105,9 +120,10 @@
 		<main class="pb5" role="main">
 
 			<article class="ph3 pv3 pv4-l f4 tc-l center measure-wide-l lh-copy mid-gray">
-				<p style="text-align:justify; text-justify:initial">I am Lorenzo Fant, a physicist studying theoretical ecology and evolution at <a href="https://www.ictp.it/" target="_clean" title="ICTP Website">ICTP</a> in Trieste</p>
+				<p style="text-align:justify; text-justify:initial">I am Lorenzo Fant, a physicist studying theoretical ecology and evolution at <a href="https://www.ugr.es/en" target="_clean" title="ugr Website">Granada University</a>.</p>
+				<p style="text-align:justify; text-justify:initial">I work as a Post-Doc in <a href="https://scholar.google.com/citations?user=IwZEKqoAAAAJ&hl=it"  target="_clean" title="Miguel A. Munoz Scholar">MAMunoz Lab</a> since September 2022.</p>
 				<p style="text-align:justify; text-justify:initial">	My main research interest is the modelling of fundamental community processes.
-					I look for simple ways to describe complex ecological and evolutionary processes, trying to identify the very relevant features required to describe data,
+					I look for identifying the very relevant features required to describe complex ecological and evolutionary processes,
 					justifying the emergence of observed behaviours and patterns.
 					I am mainly focusing on two aspects of ecology and evolution:
 					the characterization of the stable state of ecological communities and, on the other hand, the effects of stochasticity on the evolution of individual traits and on the shape of communities.</p>
@@ -119,9 +135,9 @@
 		</main>
 		</div>
 
-		<footer id="footer" class="bg-near-black" role="contentinfo">
+		<footer id="footer" class="bg-near-white" role="contentinfo">
 			<div class="flex justify-between pa3">
-				<a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3" href="https://lorenzofant.github.io" title="Home page">
+				<a class="f4 fw4 hover-white moon-gray dn dib-ns pv2 ph3" href="https://lorenzofant.github.io" title="Home page">
 					&copy; 2022 Lorenzo Fant
 				</a>
 

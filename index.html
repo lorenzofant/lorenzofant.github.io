@@ -44,7 +44,7 @@
 		<div id="content-wrap">
 
 		<header>
-		<nav class="navbar dn-l z-5" >
+		<nav id="navt" class="navbar dn-l z-5" >
 			<ul class = "ph5-pl di">
 				<li class="db fl m0 f3 fw2 pl4-l"><a class="dark-gray" href="https://lorenzofant.github.io" title="Home page"> Lorenzo Fant </a></li>
 
@@ -54,7 +54,7 @@
 				<li class="dn db-pl fr f4 pr4"><a class="mid-gray" href="https://lorenzofant.github.io" title="Home page"> Home </a></li>
 			</ul>
 			</nav>
-			<nav class="navbar-t dn db-l z-5" >
+			<nav id="navt" class="navbar-t dn db-l z-5" >
 			<div class="dropdown pr4">
 
 				<button onclick="myFunction()" class="dropbtn fr">Menu
@@ -92,8 +92,13 @@
     var currScrollPos2 = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     if (currScrollPos2 > 50) {
 			document.getElementById('test').style.opacity = -currScrollPos2 / 80 + 2;
-			document.getElementById('bg-dis').style.opacity = -currScrollPos2 / 180 + 2;
+			document.getElementById('bg-dis').style.opacity = -currScrollPos2 / 180 + 2;}
+		if (currScrollPos2 < 360) {
+			document.getElementById('navt').style.backgroundColor = "hsla(0,0%,100%,.7)";
     }
+	if (currScrollPos2 > 360) {
+		document.getElementById('navt').style.backgroundColor = "#f4f4f4";
+	}
   }
 );
 				function myFunction() {

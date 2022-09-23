@@ -94,6 +94,13 @@
 						if (currScrollPos2 > 360) {
 							document.getElementById('navt').style.backgroundColor = "#f4f4f4";
 						}
+						if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+							if (currScrollPos2 < 160) {
+								document.getElementById('navt').style.backgroundColor = "hsla(0,0%,100%,.7)";
+							}
+						if (currScrollPos2 > 160) {
+							document.getElementById('navt').style.backgroundColor = "#f4f4f4";
+						}
 					  }
 					);
 									function myFunction() {

@@ -87,7 +87,16 @@
 					    var currScrollPos2 = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 
 						if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-							
+
+								if (currScrollPos2 > 30) {
+									document.getElementById('test').style.opacity = -currScrollPos2 / 50 + 2;
+									document.getElementById('bg-dis').style.opacity = -currScrollPos2 / 100 + 2;}
+								if (currScrollPos2 < 100) {
+									document.getElementById('navt').style.backgroundColor = "hsla(0,0%,100%,.7)";
+						    }
+							if (currScrollPos2 > 100) {
+								document.getElementById('navt').style.backgroundColor = "#f4f4f4";
+							}
 					  }
 						else{
 							if (currScrollPos2 > 50) {

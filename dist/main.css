@@ -2337,7 +2337,7 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
 
   .navbar-t {
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
-    background-color: hsla(0,0%,100%,.7);
+    background-color: #f4f4f4;
     font-family: inherit;
     margin: 0;
     width: 100%;

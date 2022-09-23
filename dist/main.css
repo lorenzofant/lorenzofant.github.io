@@ -26,6 +26,7 @@ summary{display:list-item}
 canvas{display:inline-block}
 img{max-width:100%}
 nav {position: fixed}
+
 #page-container {
   position: relative;
   min-height: 100vh;
@@ -130,8 +131,11 @@ nav {position: fixed}
 .bg-center,.bg-top{background-repeat:no-repeat}
 .bg-top{background-position:top}
 .bg-right{background-position:100%}
-.bg-bottom,.bg-right{background-repeat:no-repeat}
-.bg-bottom{background-position:bottom}
+.bg-bottom,.bg-right{background-repeat:no-repeat;-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;}
+.bg-bottom{background-position:bottom; width:100%;height: auto}
 .bg-left{background-repeat:no-repeat;background-position:0}
 @media screen and (min-width:40em){
   .bg-center-ns{background-position:50%}

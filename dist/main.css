@@ -2378,8 +2378,8 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
 .bar1, .bar2, .bar3 {
   width: 35px;
   height: 4px;
-  background-color: hsla(0,0%,100%,.9);
-  color: hsla(0,0%,100%,.9);
+  background-color: #777;
+  color: #777;
   margin-bottom: 6px;
   transition: 0.4s;
   z-index: -1;

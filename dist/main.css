@@ -2337,7 +2337,7 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
 
   .navbar-t {
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
-    background-color: #f4f4f4;
+    background-color: hsla(0,0%,100%,.9);
     font-family: inherit;
     margin: 0;
     width: 100%;
@@ -2368,6 +2368,8 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
   background-color: inherit;
   font-family: inherit; /* Important for vertical align on mobile phones */
   margin: 0;
+  display: inline-block;
+  cursor: pointer;
 }
 
 /* Dropdown button */
@@ -2404,7 +2406,7 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
 
 /* Dropdown content (hidden by default) */
 .dropdown-content {
-  margin-top: 2.7rem;
+  margin-top: 1rem;
   display: none;
   right:0;
   position: absolute;

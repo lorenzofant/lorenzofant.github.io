@@ -54,14 +54,11 @@
 				<li class="dn db-pl fr f4 pr4"><a class="mid-gray" href="https://lorenzofant.github.io" title="Home page"> Home </a></li>
 			</ul>
 			</nav>
-			<nav id="navt" class="navbar-t dn db-l z-5" >
-			<div class="dropdown pr4">
+			<nav id="navt" class="navbar-t dn db-l z-4" >
+			<div  class="dropdown pr4 z-5">
 
-				<button id ="botton" onclick="myFunction()" class="dropbtn fr">
-					<div class="bar1"></div>
-  				<div class="bar2"></div>
-  				<div class="bar3"></div>
-				</button>
+				<div onclick="myFunction()" id ="botton" class="dropbtn z-5">Menu
+				</div>
 				<div id="myDropdown" class="dropdown-content mt4">
 
 						<p><a href="https://lorenzofant.github.io" title="Home page"> Home </a></p>
@@ -105,20 +102,17 @@
   }
 );
 				function myFunction() {
-					document.getElementById("myDropdown").classList.toggle("show");
-					document.getElementById("botton").classList.toggle("change");}
+					document.getElementById("myDropdown").classList.toggle("show");}
 
 				// Close the dropdown if the user clicks outside of it
 				window.onclick = function(event) {
-				  if (!event.target.matches('.dropbtn')) {
+				  if (!event.target.matches('.dropbtn')){
 				    var dropdowns = document.getElementsByClassName("dropdown-content");
 				    var i;
 				    for (i = 0; i < dropdowns.length; i++) {
 				      var openDropdown = dropdowns[i];
 				      if (openDropdown.classList.contains('show')) {
-				        	openDropdown.classList.remove('show');
-									var botton = document.getElementById('botton');
-									botton.classList.toggle('change');}}}}
+				        	openDropdown.classList.remove('show');}}}}
 
 
 			</script>

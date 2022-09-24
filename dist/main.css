@@ -2368,7 +2368,6 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
   background-color: inherit;
   font-family: inherit; /* Important for vertical align on mobile phones */
   margin: 0;
-  display: inline-block;
   cursor: pointer;
 }
 
@@ -2384,7 +2383,6 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
   color: #777;
   margin-bottom: 6px;
   transition: 0.4s;
-  z-index: -1;
 }
 
 
@@ -2406,7 +2404,7 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
 
 /* Dropdown content (hidden by default) */
 .dropdown-content {
-  margin-top: 1rem;
+  margin-top: 16px;
   display: none;
   right:0;
   position: absolute;

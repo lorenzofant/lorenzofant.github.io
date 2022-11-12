@@ -1,6 +1,0 @@
-
-document.getElementById("botton").classList.toggle("change");
-
-
-var botton = document.getElementById('botton');
-botton.classList.toggle('change');

@@ -2574,13 +2574,25 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
   color: white;
 }
 
+@media screen and (min-width:50em){
+  .image-text {
+    display: flex;
+    align-items: center;
+  }
 
-.image-text {
-  display: flex;
-  align-items: center;
+  .image-text img {
+    margin-left: 3em;
+    width: 40%;
+  }
 }
 
-.image-text img {
-  margin-left: 3em;
-  width: 100px;
+
+@media screen and (max-width:50em){
+  .image-text {
+    align-items: center;
+  }
+
+  .image-text img {
+    width: 100%;
+  }
 }

@@ -2573,3 +2573,14 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
   background-color: #04AA6D;
   color: white;
 }
+
+
+.image-text {
+  display: flex;
+  align-items: center;
+}
+
+.image-text img {
+  margin-left: 3em;
+  width: 100px;
+}

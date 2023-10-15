@@ -2451,9 +2451,9 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
 .prev, .next {
   cursor: pointer;
   position: absolute;
-  top: 50%;
+  top: 0%;
   width: auto;
-  margin-top: -22px;
+  margin-top: -0px;
   padding: 16px;
   color: #bbb;
   font-weight: bold;

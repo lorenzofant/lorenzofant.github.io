@@ -2311,9 +2311,9 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
   padding: 1rem 0rem;
 }
 
-/* Links inside the navbar */
+/* Links inside the navbar
 .navbar a {
-}
+} */
 
 .navbar a:hover{
   color: #333;
@@ -2344,9 +2344,9 @@ pre{background-color:#222;color:#ddd;white-space:pre;-webkit-hyphens:none;-ms-hy
     padding: 1rem 0rem;
   }
 
-  /* Links inside the navbar */
+  /* Links inside the navbar
   .navbar-t a {
-  }
+  } */
 
   .navbar-t a:hover{
     color: #333;

@@ -1,0 +1,36 @@
+name: Update publications from Google Scholar
+
+on:
+  schedule:
+    # 1st of every month at 08:00 UTC
+    - cron: "0 8 1 * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install scholarly
+        run: pip install scholarly
+
+      - name: Fetch publications
+        run: python scripts/fetch_scholar.py
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git diff --quiet publications/data.json || (
+            git add publications/data.json &&
+            git commit -m "chore: update publications from Google Scholar [skip ci]" &&
+            git push
+          )

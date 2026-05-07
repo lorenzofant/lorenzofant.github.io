@@ -1,0 +1,6 @@
+# Private article PDFs — kept locally only; CV.pdf is public
+misc/*.pdf
+!misc/CV.pdf
+
+# macOS
+.DS_Store

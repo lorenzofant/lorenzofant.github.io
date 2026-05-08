@@ -174,86 +174,104 @@
     }
   });
 
-  // Bacteria scatter on hero click
+  // Bacteria: one per click, run-and-tumble to a random target, stays on screen
   (function () {
     var hero = document.querySelector('.hero-img');
     if (!hero) return;
 
-    // Crop rectangles {x, y, w, h} in source image pixels (3000 × 1500)
-    var BACTERIA = [
-      {x:  50, y:  50, w: 130, h:  75},
-      {x: 215, y:  70, w: 185, h: 185},
-      {x: 560, y:  20, w: 115, h: 185},
-      {x: 700, y:  90, w: 200, h:  95},
-      {x: 355, y: 180, w: 160, h:  85},
-      {x: 110, y: 275, w: 250, h: 250},
-      {x: 800, y:  50, w: 220, h: 220},
-      {x: 650, y: 205, w: 200, h: 100},
-      {x:1200, y: 180, w: 310, h: 215},
-      {x: 460, y: 390, w: 200, h: 200},
-      {x: 855, y: 385, w: 255, h: 265},
-      {x:1080, y:  50, w: 265, h: 260},
-      {x:1380, y: 120, w: 140, h: 140},
-      {x:1490, y:  90, w: 220, h: 220},
-      {x:1700, y: 200, w: 280, h: 150},
+    var IMGS = [
+      '/images/bacteria/bacteria_1.jpg',
+      '/images/bacteria/bacteria_2.jpg',
+      '/images/bacteria/bacteria_3.jpg',
+      '/images/bacteria/bacteria_4.jpg',
+      '/images/bacteria/bacteria_5.jpg',
+      '/images/bacteria/bacteria_6.jpg',
+      '/images/bacteria/bacteria_7.jpg',
     ];
+    var DISPLAY_PX = 80; // target display size for shorter image dimension
 
-    var IMG_W = 3000, IMG_H = 1500;
-    var busy = false;
+    var active = [];
+    var lastTs = null;
+    var loopStarted = false;
 
     hero.style.cursor = 'pointer';
 
     hero.addEventListener('click', function () {
-      if (busy) return;
-      busy = true;
+      var vw = window.innerWidth, vh = window.innerHeight;
+      var src = IMGS[Math.floor(Math.random() * IMGS.length)];
 
-      var rect  = hero.getBoundingClientRect();
-      var scale = rect.width / IMG_W;
-      // object-position: center 40% clips the top of the scaled image
-      var yOff  = Math.max(0, (IMG_H * scale - rect.height) * 0.4);
+      var probe = new Image();
+      probe.onload = function () {
+        var s  = DISPLAY_PX / Math.min(probe.naturalWidth, probe.naturalHeight);
+        var dw = Math.round(probe.naturalWidth  * s);
+        var dh = Math.round(probe.naturalHeight * s);
+        var r  = Math.sqrt(dw * dw + dh * dh) / 2;
 
-      var n = BACTERIA.length, done = 0;
+        var rect = hero.getBoundingClientRect();
+        var cx = Math.max(r, Math.min(vw - r, rect.left + Math.random() * rect.width));
+        var cy = Math.max(r, Math.min(vh - r, rect.top  + Math.random() * rect.height));
+        var tx = r + Math.random() * (vw - 2 * r);
+        var ty = r + Math.random() * (vh - 2 * r);
+        var h  = Math.atan2(ty - cy, tx - cx) + (Math.random() - 0.5) * 1.2;
 
-      BACTERIA.forEach(function (b, i) {
-        var dw = Math.max(24, Math.round(b.w * scale));
-        var dh = Math.max(14, Math.round(b.h * scale));
-        var sx = rect.left + b.x * scale - dw / 2;
-        var sy = rect.top  + b.y * scale - yOff - dh / 2;
-
-        var el = document.createElement('div');
+        var el = document.createElement('img');
+        el.src = src;
         el.style.cssText = 'position:fixed;pointer-events:none;z-index:9999;'
-          + 'width:'  + dw + 'px;height:' + dh + 'px;'
-          + 'left:'   + sx + 'px;top:'    + sy + 'px;'
-          + 'background-image:url(/images/bacteria.jpg);'
-          + 'background-size:' + Math.round(IMG_W * scale) + 'px ' + Math.round(IMG_H * scale) + 'px;'
-          + 'background-position:-' + Math.round(b.x * scale) + 'px -' + Math.round(b.y * scale) + 'px;'
-          + 'background-repeat:no-repeat;'
-          + 'opacity:0;will-change:transform,opacity;';
-
+          + 'width:' + dw + 'px;height:' + dh + 'px;'
+          + 'left:' + (cx - dw / 2) + 'px;top:' + (cy - dh / 2) + 'px;'
+          + 'mix-blend-mode:multiply;transform-origin:center center;'
+          + 'will-change:left,top,transform;';
         document.body.appendChild(el);
 
-        setTimeout(function () {
-          requestAnimationFrame(function () {
-            var vw = window.innerWidth, vh = window.innerHeight;
-            var tx  = (Math.random() - 0.5) * vw * 0.85;
-            var ty  = (Math.random() - 0.5) * vh * 0.85;
-            var rot = (Math.random() - 0.5) * 360;
-            el.style.transition = 'transform 2.4s cubic-bezier(.1,.85,.25,1), opacity 0.35s ease';
-            el.style.opacity    = '0.95';
-            el.style.transform  = 'translate(' + tx + 'px,' + ty + 'px) rotate(' + rot + 'deg)';
+        active.push({ el: el, cx: cx, cy: cy, dw: dw, dh: dh, r: r,
+          tx: tx, ty: ty, h: h,
+          speed: 60 + Math.random() * 50,
+          tTimer: 0.3 + Math.random() * 0.7,
+          stopped: false });
 
-            setTimeout(function () {
-              el.style.transition = 'opacity 0.8s ease';
-              el.style.opacity    = '0';
-              setTimeout(function () {
-                el.remove();
-                if (++done >= n) busy = false;
-              }, 800);
-            }, 2200);
-          });
-        }, i * 25);
-      });
+        if (!loopStarted) { loopStarted = true; requestAnimationFrame(loop); }
+      };
+      probe.src = src;
     });
+
+    function tumble(b) {
+      var toTarget = Math.atan2(b.ty - b.cy, b.tx - b.cx);
+      b.h = toTarget + (Math.random() - 0.5) * Math.PI * 0.8;
+      b.tTimer = 0.4 + Math.random() * 0.9;
+    }
+
+    function loop(ts) {
+      requestAnimationFrame(loop);
+      var dt = lastTs === null ? 0 : Math.min((ts - lastTs) / 1000, 0.05);
+      lastTs = ts;
+      if (!dt) return;
+
+      var vw = window.innerWidth, vh = window.innerHeight;
+
+      for (var i = 0; i < active.length; i++) {
+        var b = active[i];
+        if (b.stopped) continue;
+
+        b.tTimer -= dt;
+        if (b.tTimer <= 0) tumble(b);
+
+        b.h  += (Math.random() - 0.5) * 2.0 * dt;
+        b.cx += Math.cos(b.h) * b.speed * dt;
+        b.cy += Math.sin(b.h) * b.speed * dt;
+
+        if (b.cx < b.r)      { b.cx = b.r;      b.h = Math.PI - b.h; }
+        if (b.cx > vw - b.r) { b.cx = vw - b.r; b.h = Math.PI - b.h; }
+        if (b.cy < b.r)      { b.cy = b.r;       b.h = -b.h; }
+        if (b.cy > vh - b.r) { b.cy = vh - b.r;  b.h = -b.h; }
+
+        var dx = b.cx - b.tx, dy = b.cy - b.ty;
+        if (dx * dx + dy * dy < 60 * 60) b.stopped = true;
+
+        b.el.style.left      = (b.cx - b.dw / 2) + 'px';
+        b.el.style.top       = (b.cy - b.dh / 2) + 'px';
+        b.el.style.transform = 'rotate(' + (b.h * 180 / Math.PI) + 'deg)';
+      }
+    }
   }());
 </script>
 </body>

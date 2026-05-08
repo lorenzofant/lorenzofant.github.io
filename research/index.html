@@ -188,7 +188,7 @@
       '/images/bacteria/bacteria_6.jpg',
       '/images/bacteria/bacteria_7.jpg',
     ];
-    var DISPLAY_PX = 80; // target display size for shorter image dimension
+    var DISPLAY_PX = 120; // display size for shorter image dimension (px)
 
     var active = [];
     var lastTs = null;
@@ -196,7 +196,8 @@
 
     hero.style.cursor = 'pointer';
 
-    hero.addEventListener('click', function () {
+    hero.addEventListener('click', function (e) {
+      var clickX = e.clientX, clickY = e.clientY;
       var vw = window.innerWidth, vh = window.innerHeight;
       var src = IMGS[Math.floor(Math.random() * IMGS.length)];
 
@@ -207,9 +208,8 @@
         var dh = Math.round(probe.naturalHeight * s);
         var r  = Math.sqrt(dw * dw + dh * dh) / 2;
 
-        var rect = hero.getBoundingClientRect();
-        var cx = Math.max(r, Math.min(vw - r, rect.left + Math.random() * rect.width));
-        var cy = Math.max(r, Math.min(vh - r, rect.top  + Math.random() * rect.height));
+        var cx = Math.max(r, Math.min(vw - r, clickX));
+        var cy = Math.max(r, Math.min(vh - r, clickY));
         var tx = r + Math.random() * (vw - 2 * r);
         var ty = r + Math.random() * (vh - 2 * r);
         var h  = Math.atan2(ty - cy, tx - cx) + (Math.random() - 0.5) * 1.2;
@@ -224,8 +224,9 @@
         document.body.appendChild(el);
 
         active.push({ el: el, cx: cx, cy: cy, dw: dw, dh: dh, r: r,
-          tx: tx, ty: ty, h: h,
-          speed: 60 + Math.random() * 50,
+          tx: tx, ty: ty,
+          h: h, targetH: h,
+          speed: 120 + Math.random() * 80,
           tTimer: 0.3 + Math.random() * 0.7,
           stopped: false });
 
@@ -236,8 +237,8 @@
 
     function tumble(b) {
       var toTarget = Math.atan2(b.ty - b.cy, b.tx - b.cx);
-      b.h = toTarget + (Math.random() - 0.5) * Math.PI * 0.8;
-      b.tTimer = 0.4 + Math.random() * 0.9;
+      b.targetH = toTarget + (Math.random() - 0.5) * Math.PI * 0.8;
+      b.tTimer  = 0.4 + Math.random() * 0.9;
     }
 
     function loop(ts) {
@@ -255,14 +256,22 @@
         b.tTimer -= dt;
         if (b.tTimer <= 0) tumble(b);
 
-        b.h  += (Math.random() - 0.5) * 2.0 * dt;
+        // Smooth heading rotation toward targetH (5 rad/s max)
+        var dh = Math.atan2(Math.sin(b.targetH - b.h), Math.cos(b.targetH - b.h));
+        b.h += Math.abs(dh) < 5 * dt ? dh : Math.sign(dh) * 5 * dt;
+
+        // Rotational diffusion: drift both h and targetH together
+        var drift = (Math.random() - 0.5) * 1.5 * dt;
+        b.h       += drift;
+        b.targetH += drift;
+
         b.cx += Math.cos(b.h) * b.speed * dt;
         b.cy += Math.sin(b.h) * b.speed * dt;
 
-        if (b.cx < b.r)      { b.cx = b.r;      b.h = Math.PI - b.h; }
-        if (b.cx > vw - b.r) { b.cx = vw - b.r; b.h = Math.PI - b.h; }
-        if (b.cy < b.r)      { b.cy = b.r;       b.h = -b.h; }
-        if (b.cy > vh - b.r) { b.cy = vh - b.r;  b.h = -b.h; }
+        if (b.cx < b.r)      { b.cx = b.r;      b.h = Math.PI - b.h; b.targetH = b.h; }
+        if (b.cx > vw - b.r) { b.cx = vw - b.r; b.h = Math.PI - b.h; b.targetH = b.h; }
+        if (b.cy < b.r)      { b.cy = b.r;       b.h = -b.h;          b.targetH = b.h; }
+        if (b.cy > vh - b.r) { b.cy = vh - b.r;  b.h = -b.h;          b.targetH = b.h; }
 
         var dx = b.cx - b.tx, dy = b.cy - b.ty;
         if (dx * dx + dy * dy < 60 * 60) b.stopped = true;

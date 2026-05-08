@@ -34,8 +34,10 @@
       .research-text-col { padding-bottom: 1rem; }
     }
 
-    /* Bacteria swim behind all page content (z-index:1) but above body background */
-    .page-outer { position: relative; z-index: 2; }
+    /* Layering: hero(1) < bacteria(2) < page content(3) < nav/footer(150+) */
+    .hero-composer { z-index: 1; }
+    .page-header   { position: relative; z-index: 3; }
+    .page-content  { position: relative; z-index: 3; }
 
     /* ── Composed hero ── */
     .hero-composer {
@@ -125,6 +127,33 @@
       <!-- bacteria_12 (125×150) small oval -->
       <img class="bact-sprite" src="/images/bacteria/bacteria_12.jpg" style="left:53%;top:12%;width:3.5%">
       <img class="bact-sprite" src="/images/bacteria/bacteria_12.jpg" style="left:44%;top:78%;width:3.5%">
+      <!-- bacteria_13 (323×354) large -->
+      <img class="bact-sprite" src="/images/bacteria/bacteria_13.jpg" style="left:82%;top:5%;width:6.5%">
+      <img class="bact-sprite" src="/images/bacteria/bacteria_13.jpg" style="left:35%;top:38%;width:6.5%">
+      <!-- bacteria_14 (263×263) -->
+      <img class="bact-sprite" src="/images/bacteria/bacteria_14.jpg" style="left:55%;top:30%;width:5.5%">
+      <img class="bact-sprite" src="/images/bacteria/bacteria_14.jpg" style="left:10%;top:25%;width:5.5%">
+      <!-- bacteria_15 (250×235) -->
+      <img class="bact-sprite" src="/images/bacteria/bacteria_15.jpg" style="left:68%;top:50%;width:5%">
+      <img class="bact-sprite" src="/images/bacteria/bacteria_15.jpg" style="left:43%;top:65%;width:5%">
+      <!-- bacteria_16 (204×128) wide -->
+      <img class="bact-sprite" src="/images/bacteria/bacteria_16.jpg" style="left:20%;top:38%;width:5%">
+      <img class="bact-sprite" src="/images/bacteria/bacteria_16.jpg" style="left:76%;top:58%;width:5%">
+      <!-- bacteria_17 (174×205) -->
+      <img class="bact-sprite" src="/images/bacteria/bacteria_17.jpg" style="left:50%;top:40%;width:4.5%">
+      <img class="bact-sprite" src="/images/bacteria/bacteria_17.jpg" style="left:25%;top:68%;width:4.5%">
+      <!-- bacteria_18 (137×136) small -->
+      <img class="bact-sprite" src="/images/bacteria/bacteria_18.jpg" style="left:64%;top:78%;width:4%">
+      <img class="bact-sprite" src="/images/bacteria/bacteria_18.jpg" style="left:86%;top:38%;width:4%">
+      <!-- bacteria_19 (247×267) -->
+      <img class="bact-sprite" src="/images/bacteria/bacteria_19.jpg" style="left:32%;top:8%;width:5.5%">
+      <img class="bact-sprite" src="/images/bacteria/bacteria_19.jpg" style="left:73%;top:72%;width:5.5%">
+      <!-- bacteria_20 (230×213) -->
+      <img class="bact-sprite" src="/images/bacteria/bacteria_20.jpg" style="left:5%;top:15%;width:5.5%">
+      <img class="bact-sprite" src="/images/bacteria/bacteria_20.jpg" style="left:60%;top:75%;width:5.5%">
+      <!-- bacteria_21 (220×226) -->
+      <img class="bact-sprite" src="/images/bacteria/bacteria_21.jpg" style="left:18%;top:78%;width:5%">
+      <img class="bact-sprite" src="/images/bacteria/bacteria_21.jpg" style="left:90%;top:60%;width:5%">
     </div>
     <div class="hero-accent"></div>
   </div>
@@ -271,7 +300,7 @@
 
       var el = document.createElement('img');
       el.src = sprite.src;
-      el.style.cssText = 'position:fixed;pointer-events:none;z-index:1;'
+      el.style.cssText = 'position:fixed;pointer-events:none;z-index:2;'
         + 'width:' + dw + 'px;height:' + dh + 'px;'
         + 'left:' + (cx - dw / 2) + 'px;top:' + (cy - dh / 2) + 'px;'
         + 'mix-blend-mode:multiply;transform-origin:center center;'
@@ -329,6 +358,7 @@
         if (dx * dx + dy * dy < 60 * 60) {
           b.stopped = true;
           b.el.style.position  = 'absolute';
+          b.el.style.zIndex    = '2';
           b.el.style.left      = (b.cx - b.dw / 2 + window.scrollX) + 'px';
           b.el.style.top       = (b.cy - b.dh / 2 + window.scrollY) + 'px';
           b.el.style.transform = 'rotate(' + (b.h * 180 / Math.PI) + 'deg)';

@@ -42,7 +42,7 @@
             : '';
           html += '<li class="pub-item">'
             + titleTag
-            + '<span class="pub-authors">' + esc(p.authors) + '</span>'
+            + '<span class="pub-authors">' + esc(p.authors.replace(/ and /g, ', ')) + '</span>'
             + '<span class="pub-meta"><span class="pub-journal">' + esc(p.journal) + '</span>' + badge + '</span>'
             + '</li>';
         });

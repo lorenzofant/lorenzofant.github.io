@@ -173,6 +173,88 @@
       document.getElementById('nav-dropdown').classList.remove('open');
     }
   });
+
+  // Bacteria scatter on hero click
+  (function () {
+    var hero = document.querySelector('.hero-img');
+    if (!hero) return;
+
+    // Crop rectangles {x, y, w, h} in source image pixels (3000 × 1500)
+    var BACTERIA = [
+      {x:  50, y:  50, w: 130, h:  75},
+      {x: 215, y:  70, w: 185, h: 185},
+      {x: 560, y:  20, w: 115, h: 185},
+      {x: 700, y:  90, w: 200, h:  95},
+      {x: 355, y: 180, w: 160, h:  85},
+      {x: 110, y: 275, w: 250, h: 250},
+      {x: 800, y:  50, w: 220, h: 220},
+      {x: 650, y: 205, w: 200, h: 100},
+      {x:1200, y: 180, w: 310, h: 215},
+      {x: 460, y: 390, w: 200, h: 200},
+      {x: 855, y: 385, w: 255, h: 265},
+      {x:1080, y:  50, w: 265, h: 260},
+      {x:1380, y: 120, w: 140, h: 140},
+      {x:1490, y:  90, w: 220, h: 220},
+      {x:1700, y: 200, w: 280, h: 150},
+    ];
+
+    var IMG_W = 3000, IMG_H = 1500;
+    var busy = false;
+
+    hero.style.cursor = 'pointer';
+
+    hero.addEventListener('click', function () {
+      if (busy) return;
+      busy = true;
+
+      var rect  = hero.getBoundingClientRect();
+      var scale = rect.width / IMG_W;
+      // object-position: center 40% clips the top of the scaled image
+      var yOff  = Math.max(0, (IMG_H * scale - rect.height) * 0.4);
+
+      var n = BACTERIA.length, done = 0;
+
+      BACTERIA.forEach(function (b, i) {
+        var dw = Math.max(24, Math.round(b.w * scale));
+        var dh = Math.max(14, Math.round(b.h * scale));
+        var sx = rect.left + b.x * scale - dw / 2;
+        var sy = rect.top  + b.y * scale - yOff - dh / 2;
+
+        var el = document.createElement('div');
+        el.style.cssText = 'position:fixed;pointer-events:none;z-index:9999;'
+          + 'width:'  + dw + 'px;height:' + dh + 'px;'
+          + 'left:'   + sx + 'px;top:'    + sy + 'px;'
+          + 'background-image:url(/images/bacteria.jpg);'
+          + 'background-size:' + Math.round(IMG_W * scale) + 'px ' + Math.round(IMG_H * scale) + 'px;'
+          + 'background-position:-' + Math.round(b.x * scale) + 'px -' + Math.round(b.y * scale) + 'px;'
+          + 'background-repeat:no-repeat;'
+          + 'opacity:0;will-change:transform,opacity;';
+
+        document.body.appendChild(el);
+
+        setTimeout(function () {
+          requestAnimationFrame(function () {
+            var vw = window.innerWidth, vh = window.innerHeight;
+            var tx  = (Math.random() - 0.5) * vw * 0.85;
+            var ty  = (Math.random() - 0.5) * vh * 0.85;
+            var rot = (Math.random() - 0.5) * 360;
+            el.style.transition = 'transform 2.4s cubic-bezier(.1,.85,.25,1), opacity 0.35s ease';
+            el.style.opacity    = '0.95';
+            el.style.transform  = 'translate(' + tx + 'px,' + ty + 'px) rotate(' + rot + 'deg)';
+
+            setTimeout(function () {
+              el.style.transition = 'opacity 0.8s ease';
+              el.style.opacity    = '0';
+              setTimeout(function () {
+                el.remove();
+                if (++done >= n) busy = false;
+              }, 800);
+            }, 2200);
+          });
+        }, i * 25);
+      });
+    });
+  }());
 </script>
 </body>
 </html>

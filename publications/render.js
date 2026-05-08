@@ -2,30 +2,37 @@
   var container = document.getElementById('publications-auto');
   if (!container) return;
 
+  var CONF_RE = /meeting|conference|symposium|workshop|proceedings|congress/i;
+
+  function keep(p) {
+    if (!p.year || p.year <= 2020) return false;
+    if (!p.journal) return false;
+    if (CONF_RE.test(p.journal)) return false;
+    return true;
+  }
+
   fetch('/publications/data.json')
     .then(function (res) {
       if (!res.ok) throw new Error('fetch failed');
       return res.json();
     })
     .then(function (data) {
-      var pubs = data.publications || [];
+      var pubs = (data.publications || []).filter(keep);
       if (!pubs.length) throw new Error('empty');
 
-      // Group by year, descending
       var byYear = {};
       pubs.forEach(function (p) {
-        var y = p.year || 'n.d.';
-        if (!byYear[y]) byYear[y] = [];
-        byYear[y].push(p);
+        if (!byYear[p.year]) byYear[p.year] = [];
+        byYear[p.year].push(p);
       });
       var years = Object.keys(byYear).sort(function (a, b) { return b - a; });
 
       var html = '';
       if (data.updated) {
-        html += '<p class="pub-loading" style="font-size:0.78rem;margin-bottom:0;">Last synced with Google Scholar: ' + data.updated + '</p>';
+        html += '<p class="pub-loading">Last synced with Google Scholar: ' + data.updated + '</p>';
       }
       years.forEach(function (year) {
-        html += '<h2 class="pub-year">' + year + '</h2><ul class="pub-list">';
+        html += '<div class="pub-group"><div class="pub-year-col">' + year + '</div><ul class="pub-list">';
         byYear[year].forEach(function (p) {
           var titleTag = p.scholar_url
             ? '<a class="pub-title" href="' + esc(p.scholar_url) + '" target="_blank" rel="noopener noreferrer">' + esc(p.title) + '</a>'
@@ -36,10 +43,10 @@
           html += '<li class="pub-item">'
             + titleTag
             + '<span class="pub-authors">' + esc(p.authors) + '</span>'
-            + '<span class="pub-meta"><span class="pub-journal">' + esc(p.journal || '') + '</span>' + badge + '</span>'
+            + '<span class="pub-meta"><span class="pub-journal">' + esc(p.journal) + '</span>' + badge + '</span>'
             + '</li>';
         });
-        html += '</ul>';
+        html += '</ul></div>';
       });
       container.innerHTML = html;
     })

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
-  <title>Lorenzo Fant</title>
+  <title>Research — Lorenzo Fant</title>
 
   <style>
     :root {
@@ -46,7 +46,6 @@
       z-index: 200;
     }
     .nav-inner {
-      /* padding-inline matches the auto-margin centering of a max-width:900px element */
       padding: 0 max(1rem, calc((100% - var(--max-w)) / 2));
       height: 100%;
       display: flex;
@@ -70,130 +69,6 @@
     }
     .nav-links a:hover { color: var(--accent); text-decoration: none; }
 
-    /* ── Page shell ── */
-    .page-outer {
-      margin-top: var(--nav-h);
-      padding-bottom: calc(var(--footer-h) + 1.5rem);
-    }
-
-    /* ── Hero ── */
-    .hero-wrap {
-      max-width: var(--max-w);
-      margin: 0 auto;
-    }
-    .hero-img {
-      display: block;
-      width: 100%;
-      height: 420px;
-      object-fit: cover;
-      object-position: center 55%;
-    }
-    .hero-accent {
-      height: 2px;
-      background: linear-gradient(to right, transparent 0%, var(--accent) 25%, var(--accent) 75%, transparent 100%);
-      opacity: 0.38;
-    }
-
-    /* ── Name + affiliation block (below hero, above split) ── */
-    .name-section {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 1.75rem 0 0;
-    }
-    .section-rule {
-      max-width: var(--max-w);
-      margin: 1rem auto 0;
-      border: none;
-      border-top: 1px solid rgba(74,124,89,0.18);
-    }
-
-    /* ── Content two-column grid ── */
-    .content-grid {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 230px 1fr;
-      column-gap: 2.5rem;
-      align-items: center;
-      /* Vertical separator centred in the column gap */
-      background-image: linear-gradient(to bottom, rgba(74,124,89,0.18), rgba(74,124,89,0.18));
-      background-size: 1px 100%;
-      background-position: calc(230px + 1.25rem) 0;
-      background-repeat: no-repeat;
-    }
-
-    /* Portrait: large, desktop left column */
-    .portrait-lg {
-      display: block;
-      width: 230px;
-      height: 340px;
-      object-fit: cover;
-      object-position: center 15%;
-    }
-    /* Portrait: compact, mobile header row (hidden on desktop) */
-    .portrait-sm { display: none; }
-
-    /* Text column */
-    .text-col {
-      padding: 1.5rem 0 2rem 0;
-      min-height: 340px;
-      display: flex;
-      flex-direction: column;
-    }
-    .name-heading {
-      font-size: 2rem;
-      font-weight: 500;
-      letter-spacing: -0.025em;
-      line-height: 1.1;
-      margin-bottom: 0.2rem;
-    }
-    .affil-line {
-      font-size: 0.79rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 500;
-      margin: 0;
-    }
-    .bio-text {
-      font-size: 0.925rem;
-      line-height: 1.78;
-      color: var(--text);
-      margin: 0 0 0.85rem;
-    }
-    .bio-text a { text-decoration: underline; text-underline-offset: 2px; }
-    .bio-text:last-of-type { margin-bottom: 0; }
-
-    /* CTA links */
-    .cta-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem 1.5rem;
-      margin-top: auto;
-      padding-top: 1.5rem;
-      border-top: 1px solid rgba(74,124,89,0.12);
-    }
-    .cta-dot-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--accent);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-    .cta-dot-link::before {
-      content: '';
-      flex-shrink: 0;
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: currentColor;
-      transition: transform 0.15s;
-    }
-    .cta-dot-link:hover { color: var(--accent-dk); text-decoration: none; }
-    .cta-dot-link:hover::before { transform: scale(1.6); }
-
     /* ── Mobile nav toggle ── */
     .nav-menu-btn {
       display: none;
@@ -206,7 +81,6 @@
       padding: 0;
     }
     .nav-menu-btn:hover { color: var(--accent); }
-    /* Dropdown: fixed so it always sits flush below the nav bar */
     .nav-dropdown {
       display: none;
       flex-direction: column;
@@ -228,6 +102,75 @@
       text-decoration: none;
     }
     .nav-dropdown a:hover { color: var(--accent); background: rgba(74,124,89,0.05); text-decoration: none; }
+
+    /* ── Page shell ── */
+    .page-outer {
+      margin-top: var(--nav-h);
+      padding-bottom: calc(var(--footer-h) + 2rem);
+    }
+
+    /* ── Hero ── */
+    .hero-wrap { max-width: var(--max-w); margin: 0 auto; }
+    .hero-img { display: block; width: 100%; height: 320px; object-fit: cover; object-position: center 40%; }
+    .hero-accent { height: 2px; background: linear-gradient(to right, transparent 0%, var(--accent) 25%, var(--accent) 75%, transparent 100%); opacity: 0.38; }
+    @media (max-width: 60em) { .hero-img { height: 200px; } }
+
+    /* ── Page header ── */
+    .page-header {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 2rem 0 1.25rem;
+      border-bottom: 1px solid rgba(74,124,89,0.18);
+    }
+    .page-title { font-size: 1.75rem; font-weight: 500; letter-spacing: -0.02em; color: var(--text-dark); margin: 0; }
+
+    /* ── Page content ── */
+    .page-content { max-width: var(--max-w); margin: 0 auto; padding: 2rem 0 0; }
+    .intro-text { font-size: 0.95rem; line-height: 1.78; color: var(--text); margin: 0 0 2rem; }
+
+    /* ── Research sections ── */
+    .research-section {
+      display: flex;
+      gap: 2.5rem;
+      align-items: start;
+      margin: 0 0 0;
+      padding: 2rem 0 0;
+      border-top: 1px solid rgba(74,124,89,0.1);
+    }
+    .research-section:first-of-type { border-top: none; padding-top: 0; }
+    /* Alternate image side: even sections flip to image-right */
+    .research-section:nth-of-type(even) { flex-direction: row-reverse; }
+
+    .research-img-col { flex-shrink: 0; width: 250px; }
+    .research-img-wrap {
+      position: relative;
+      width: 250px;
+      overflow: hidden;
+      /* height is set inline per image based on its natural aspect ratio */
+    }
+    .research-img {
+      position: absolute;
+      top: 0; left: 0;
+      height: 250px;   /* = column width; becomes visual width after rotation */
+      width: auto;     /* natural width at this height; becomes visual height */
+      transform-origin: top left;
+      transform: rotate(-90deg) translateX(-100%);
+    }
+    .research-text-col { flex: 1; padding-bottom: 2rem; }
+
+    .research-h {
+      font-size: 1rem; font-weight: 500; color: var(--text-dark);
+      margin: 0 0 0.9rem;
+      padding-left: 0.75rem;
+      border-left: 2px solid var(--accent);
+      line-height: 1.4;
+    }
+    .research-text { font-size: 0.93rem; line-height: 1.78; color: var(--text); margin: 0 0 0.75rem; }
+    .research-text a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+    .paper-refs { margin-top: 0.75rem; display: flex; flex-direction: column; gap: 0.25rem; }
+    .paper-ref { font-size: 0.82rem; color: var(--text-muted); font-style: italic; display: block; }
+    .paper-ref a { color: var(--text-muted); text-decoration: underline; text-underline-offset: 2px; }
+    .paper-ref a:hover { color: var(--accent); }
 
     /* ── Footer: fixed, inner content bounded to --max-w ── */
     #footer {
@@ -263,42 +206,22 @@
 
     /* ── Responsive ── */
     @media (max-width: 60em) {
-      /* Nav */
       .nav-links { display: none; }
       .nav-menu-btn { display: block; }
-      /* Hero */
-      .hero-img { height: 240px; }
-      /* Name section becomes a flex row: portrait-sm + name-block */
-      .name-section {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        padding: 1rem 1rem 0;
+      .page-header { padding-left: 1rem; padding-right: 1rem; }
+      .page-content { padding-left: 1rem; padding-right: 1rem; }
+      /* Stack image above text on mobile, always in same order */
+      .research-section,
+      .research-section:nth-of-type(even) { flex-direction: column; }
+      .research-img-col { width: 100%; }
+      .research-img-wrap { width: 100%; height: auto !important; }
+      /* On mobile, show landscape images unrotated at natural height */
+      .research-img {
+        position: static;
+        width: 100%; height: auto;
+        transform: none;
       }
-      .section-rule { margin: 0.75rem 1rem 0; }
-      /* Small portrait visible in name row */
-      .portrait-sm {
-        display: block;
-        flex-shrink: 0;
-        width: 86px;
-        height: 114px;
-        object-fit: cover;
-        object-position: center 15%;
-      }
-      /* Large portrait hidden */
-      .portrait-lg { display: none; }
-      /* Content grid collapses to text-only */
-      .content-grid {
-        grid-template-columns: 1fr;
-        background-image: none;
-        column-gap: 0;
-        padding: 0 1rem;
-      }
-      .text-col {
-        padding: 1.25rem 0 calc(var(--footer-h) + 1rem);
-        min-height: auto;
-      }
-      .cta-links { margin-top: 1.25rem; }
+      .research-text-col { padding-bottom: 1rem; }
     }
   </style>
 </head>
@@ -308,7 +231,7 @@
   <div class="nav-inner">
     <a class="nav-logo" href="https://lorenzofant.github.io">Lorenzo Fant</a>
     <div class="nav-links">
-      <a href="/research/">Research</a>
+      <a href="/research/" style="color:var(--accent)">Research</a>
       <a href="/publications/">Publications</a>
       <a href="/about/">About</a>
     </div>
@@ -316,7 +239,7 @@
   </div>
 </nav>
 <div class="nav-dropdown" id="nav-dropdown">
-  <a href="/research/">Research</a>
+  <a href="/research/" style="color:var(--accent)">Research</a>
   <a href="/publications/">Publications</a>
   <a href="/about/">About</a>
 </div>
@@ -324,45 +247,85 @@
 <div class="page-outer">
 
   <div class="hero-wrap">
-    <img class="hero-img" src="https://lorenzofant.github.io/images/sicily_cut.jpg" alt="Coastal landscape, Sicily">
+    <img class="hero-img" src="https://lorenzofant.github.io/images/bacteria.jpg" alt="Bacterial community">
     <div class="hero-accent"></div>
   </div>
 
-  <div class="name-section">
-    <img class="portrait portrait-sm" src="https://lorenzofant.github.io/images/me_main.jpg" alt="Lorenzo Fant">
-    <div class="name-block">
-      <h1 class="name-heading">Lorenzo Fant</h1>
-      <p class="affil-line">Researcher in Theoretical Ecology &amp; Evolution &nbsp;·&nbsp; <a href="https://www.ogs.it" target="_blank" rel="noopener noreferrer">OGS Trieste</a></p>
-    </div>
-  </div>
-  <hr class="section-rule">
-
-  <div class="content-grid">
-
-    <img class="portrait-lg" src="https://lorenzofant.github.io/images/me_main.jpg" alt="Lorenzo Fant">
-
-    <div class="text-col">
-      <p class="bio-text">
-        I am a physicist working at the intersection of statistical physics, theoretical ecology, and quantitative data analysis.
-        Since 2024 I am a Researcher at the <a href="https://www.ogs.it" target="_blank" rel="noopener noreferrer">National Institute for Oceanography and Applied Geophysics (OGS)</a>, Trieste, focusing on macroecology and modelling of marine ecosystems.
-        Previously I was a PONTE Post-Doctoral Fellow at <a href="https://gulbenkian.pt/ciencia/" target="_blank" rel="noopener noreferrer">Instituto Gulbenkian de Ciência</a>, Lisbon (2022–2024), working on community metabolic scaling and microbial functional ecology.
-      </p>
-
-      <p class="bio-text">
-        My research centres on identifying universal principles that organize ecological communities across scales of biological organization.
-        Marine phytoplankton are my primary model system: tractable in the laboratory, globally important for primary production, and rich with macroecological patterns that demand mechanistic explanation.
-        I also study how environmental fluctuations shape evolutionary strategies and life histories.
-      </p>
-      <nav class="cta-links" aria-label="Site sections">
-        <a class="cta-dot-link" href="/research/">Research</a>
-        <a class="cta-dot-link" href="/publications/">Publications &amp; Talks</a>
-        <a class="cta-dot-link" href="/about/">About &amp; Contacts</a>
-        <a class="cta-dot-link" href="https://lorenzofant.github.io/misc/CV.pdf" target="_blank" rel="noopener noreferrer">CV (PDF)</a>
-      </nav>
-    </div>
-
+  <div class="page-header">
+    <h1 class="page-title">Research</h1>
   </div>
 
+  <div class="page-content">
+
+    <p class="intro-text">I am a theoretical ecologist interested in the principles that organise biological communities across scales of organisation. My work spans marine plankton, microbial ecology, and evolutionary theory, combining mathematical modelling with quantitative analysis of empirical data. A recurring theme is the role of stochasticity: how variability and fluctuations — demographic, environmental, or arising from ecological interactions — shape community structure and constrain evolutionary outcomes.</p>
+
+    <!-- Section 1: Plankton -->
+    <div class="research-section">
+      <div class="research-img-col">
+        <div class="research-img-wrap" style="height:503px">
+          <img class="research-img" src="https://lorenzofant.github.io/images/Marine_microplanktonc.jpg" alt="Marine microplankton community" loading="lazy">
+        </div>
+      </div>
+      <div class="research-text-col">
+        <h2 class="research-h">Plankton ecology: metabolism, interactions, and trophic structure</h2>
+        <p class="research-text">
+          Marine phytoplankton underpin ocean food webs and account for nearly half of global primary production. Understanding this system requires connecting processes across scales — from the metabolic constraints that govern individual growth and respiration, to the competitive and trophic interactions through which energy and matter flow between producers, consumers, and decomposers, to the emergent community-level patterns that arise from these dynamics.
+        </p>
+        <p class="research-text">
+          Body size is a key axis along which these processes are organised: it governs individual metabolic rate, competitive ability, and vulnerability to predation. Because of this, shifts in community size structure — driven by temperature, nutrient availability, or changes in grazing pressure — cascade up through trophic levels, altering productivity, carbon export, and the efficiency of energy transfer in ways that are difficult to anticipate from species-level observations alone.
+        </p>
+        <div class="paper-refs">
+          <span class="paper-ref"><a href="https://www.nature.com/articles/s41467-024-54307-w" target="_blank" rel="noopener noreferrer">L. Fant, G. Ghedini &mdash; Nature Communications, 2024</a></span>
+          <span class="paper-ref">L. Fant, G. Ghedini &mdash; submitted to PNAS</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: Bacterial ecology -->
+    <div class="research-section">
+      <div class="research-img-col">
+        <div class="research-img-wrap" style="height:1305px">
+          <img class="research-img" src="https://lorenzofant.github.io/images/bacteria_a-min.png" alt="Bacterial community functional composition" loading="lazy">
+        </div>
+      </div>
+      <div class="research-text-col">
+        <h2 class="research-h">Bacterial ecology: from growth to community dynamics and functional composition</h2>
+        <p class="research-text">
+          Bacteria grow and compete for resources according to well-defined physiological rules, yet how these individual-level processes scale up to the complex dynamics of diverse natural communities remains a central open question. I am interested in this connection across levels of organisation — from the kinetics of single-species growth on specific substrates, to the competitive and metabolic interactions that structure multi-species assemblages, to the emergent patterns of community composition observable in gut or environmental microbiomes.
+        </p>
+        <p class="research-text">
+          A recurring theme is the stability of collective properties: the functional composition of microbial communities — the aggregate allocation of metabolic capacity across cellular processes — tends to be reproducible across individuals and environments, even when species identities vary substantially. This suggests that higher-level organisation follows its own logic, which can be uncovered using consumer-resource theory and approaches from statistical mechanics.
+        </p>
+        <div class="paper-refs">
+          <span class="paper-ref"><a href="https://www.biorxiv.org/content/10.1101/2021.04.02.438173v2.abstract" target="_blank" rel="noopener noreferrer">L. Fant, I. Macocco, J. Grilli &mdash; Preprint</a></span>
+          <span class="paper-ref">O. Mazzarisi, A. Droghetti, L. Fant et al. &mdash; Preprint</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: Stochasticity and evolution -->
+    <div class="research-section">
+      <div class="research-img-col">
+        <div class="research-img-wrap" style="height:863px">
+          <img class="research-img" src="https://lorenzofant.github.io/images/dandelions.png" alt="Dandelions dispersing seeds" loading="lazy">
+        </div>
+      </div>
+      <div class="research-text-col">
+        <h2 class="research-h">Stochastic processes and their impact on evolution</h2>
+        <p class="research-text">
+          Ecological dynamics are inherently stochastic — populations fluctuate, environments vary, and rare events can have lasting consequences. Rather than treating randomness as noise to be averaged away, I am interested in how stochastic fluctuations actively shape which strategies evolution favours, sometimes reversing the predictions of deterministic theory.
+        </p>
+        <p class="research-text">
+          Dispersal provides a clear example: whether moving between niches is advantageous depends not just on average conditions but on the full statistical structure of environmental variability — its amplitude, temporal autocorrelation, and spatial patchiness. Similarly, the evolution of cooperation is strongly influenced by demographic stochasticity: when fitness accumulates multiplicatively, as it does in biological populations, random fluctuations generate a systematic advantage for cooperators that is invisible to mean-field models. Across these settings, stochasticity is not a complication but a principal driver of evolutionary outcomes.
+        </p>
+        <div class="paper-refs">
+          <span class="paper-ref"><a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.108.L012401" target="_blank" rel="noopener noreferrer">L. Fant, O. Mazzarisi, E. Panizon, J. Grilli &mdash; Phys. Rev. E 108, L012401, 2023</a></span>
+          <span class="paper-ref">L. Fant, M. Hidalgo et al. &mdash; in preparation</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div><!-- end page-outer -->
 
 <footer id="footer" role="contentinfo">

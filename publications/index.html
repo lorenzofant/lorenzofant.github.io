@@ -25,13 +25,14 @@ a.pub-title:hover { color: var(--accent); text-decoration: underline; text-under
 
 /* ── Talks ── */
 .talks-section { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(74,124,89,0.14); }
-.talk-list { list-style: none; }
-.talk-item { padding: 0.8rem 0; border-top: 1px solid rgba(74,124,89,0.08); }
-.talk-item:last-child { border-bottom: 1px solid rgba(74,124,89,0.08); }
-.talk-role { display: block; font-size: 0.93rem; color: var(--text-dark); line-height: 1.5; }
-.talk-role a { color: var(--text-dark); text-decoration: underline; text-underline-offset: 2px; }
-.talk-role a:hover { color: var(--accent); }
-.talk-detail { display: block; font-size: 0.82rem; color: var(--text-muted); margin-top: 0.15rem; font-style: italic; }
+.talk-group { display: grid; grid-template-columns: 6rem 1fr; column-gap: 1.25rem; margin-bottom: 1.5rem; }
+.talk-role-col { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; color: var(--accent); line-height: 1.4; }
+.talk-conf-list { list-style: none; }
+.talk-conf-item { padding: 0.65rem 0; border-top: 1px solid rgba(74,124,89,0.08); font-size: 0.93rem; color: var(--text-dark); line-height: 1.5; }
+.talk-conf-item:first-child { padding-top: 0; border-top: none; }
+.talk-conf-item a { color: var(--text-dark); text-decoration: underline; text-underline-offset: 2px; }
+.talk-conf-item a:hover { color: var(--accent); }
+.talk-detail { display: block; font-size: 0.82rem; color: var(--text-muted); margin-top: 0.1rem; font-style: italic; }
 .footer-text { font-size: 0.9rem; color: var(--text); margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(74,124,89,0.1); }
 .footer-text a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
 .footer-text a:hover { color: var(--accent-dk); }
@@ -75,35 +76,62 @@ a.pub-title:hover { color: var(--accent); text-decoration: underline; text-under
 
     <div class="talks-section">
       <h2 class="section-heading">Talks &amp; Conferences</h2>
-      <ul class="talk-list">
-        <li class="talk-item">
-          <span class="talk-role"><a href="https://igc.idloom.events/biology-across-scales_2024" target="_blank" rel="noopener noreferrer">Organizer @ Biology Across Scales, Lisbon, 2024</a></span>
-        </li>
-        <li class="talk-item">
-          <span class="talk-role">Organizer @ Ecological Perturbations across communities and scales, Granada, 2023</span>
-          <span class="talk-detail">Title: Dispersal evolution across ecological niches</span>
-        </li>
-        <li class="talk-item">
-          <span class="talk-role"><a href="https://ee2023.rsvpify.com/" target="_blank" rel="noopener noreferrer">Invited Speaker @ Ergodicity Economy 2023</a></span>
-          <span class="talk-detail">Title: The ergodicity economics perspective on cooperation</span>
-        </li>
-        <li class="talk-item">
-          <span class="talk-role"><a href="https://ee2022.rsvpify.com/" target="_blank" rel="noopener noreferrer">Speaker @ Ergodicity Economy 2022</a></span>
-          <span class="talk-detail">Title: Cooperation in stochastic multiplicative-growth environments is evolutionary stable</span>
-        </li>
-        <li class="talk-item">
-          <span class="talk-role">Invited Seminar @ Max Planck Institute for Mathematics in Science, Leipzig, 2021</span>
-          <span class="talk-detail">Title: Cooperation in stochastic multiplicative-growth environments is evolutionary stable</span>
-        </li>
-        <li class="talk-item">
-          <span class="talk-role"><a href="https://liphlab.github.io/SMEEB2021/" target="_blank" rel="noopener noreferrer">Speaker @ SMEEB 2021</a></span>
-          <span class="talk-detail">Title: Eco-evolutionary dynamics lead to functionally robust and redundant communities</span>
-        </li>
-        <li class="talk-item">
-          <span class="talk-role">Poster @ QLIFE — Quantitative ecological genomics in the Tara Ocean, 2021</span>
-          <span class="talk-detail">Title: Eco-evolutionary dynamics lead to functionally robust and redundant communities</span>
-        </li>
-      </ul>
+
+      <div class="talk-group">
+        <div class="talk-role-col">Organizer</div>
+        <ul class="talk-conf-list">
+          <li class="talk-conf-item">
+            <a href="https://igc.idloom.events/biology-across-scales_2024" target="_blank" rel="noopener noreferrer">Biology Across Scales, Lisbon, 2024</a>
+          </li>
+          <li class="talk-conf-item">
+            Ecological Perturbations across communities and scales, Granada, 2023
+            <span class="talk-detail">Dispersal evolution across ecological niches</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="talk-group">
+        <div class="talk-role-col">Invited Speaker</div>
+        <ul class="talk-conf-list">
+          <li class="talk-conf-item">
+            <a href="https://ee2023.rsvpify.com/" target="_blank" rel="noopener noreferrer">Ergodicity Economy 2023</a>
+            <span class="talk-detail">The ergodicity economics perspective on cooperation</span>
+          </li>
+          <li class="talk-conf-item">
+            Max Planck Institute for Mathematics in Science, Leipzig, 2021
+            <span class="talk-detail">Cooperation in stochastic multiplicative-growth environments is evolutionary stable</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="talk-group">
+        <div class="talk-role-col">Speaker</div>
+        <ul class="talk-conf-list">
+          <li class="talk-conf-item">
+            <a href="https://atlanteco-legacy.eu/" target="_blank" rel="noopener noreferrer">Atlanteco conference 2025</a>
+            <span class="talk-detail">Robust pattern between trophic levels in planktonic ecosystems suggests unifying process shaping biodiversity</span>
+          </li>
+          <li class="talk-conf-item">
+            <a href="https://ee2022.rsvpify.com/" target="_blank" rel="noopener noreferrer">Ergodicity Economy 2022</a>
+            <span class="talk-detail">Cooperation in stochastic multiplicative-growth environments is evolutionary stable</span>
+          </li>
+          <li class="talk-conf-item">
+            <a href="https://liphlab.github.io/SMEEB2021/" target="_blank" rel="noopener noreferrer">SMEEB 2021</a>
+            <span class="talk-detail">Eco-evolutionary dynamics lead to functionally robust and redundant communities</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="talk-group">
+        <div class="talk-role-col">Poster</div>
+        <ul class="talk-conf-list">
+          <li class="talk-conf-item">
+            QLIFE — Quantitative ecological genomics in the Tara Ocean, 2021
+            <span class="talk-detail">Eco-evolutionary dynamics lead to functionally robust and redundant communities</span>
+          </li>
+        </ul>
+      </div>
+
       <p class="footer-text">To learn more about my research see <a href="/research/">ongoing research interests</a> or reach me via <a href="/about/">contact info</a>.</p>
     </div>
 

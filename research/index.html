@@ -36,6 +36,33 @@
 
     /* Bacteria swim behind all page content (z-index:1) but above body background */
     .page-outer { position: relative; z-index: 2; }
+
+    /* ── Composed hero ── */
+    .hero-composer {
+      position: relative;
+      width: 100%;
+      height: 320px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      pointer-events: none;
+    }
+    .bact-sprite {
+      position: absolute;
+      mix-blend-mode: multiply;
+      pointer-events: none;
+      height: auto;
+    }
+    @media (max-width: 60em) {
+      .hero-composer { height: 200px; }
+    }
   </style>
 </head>
 <body>
@@ -60,7 +87,45 @@
 <div class="page-outer">
 
   <div class="hero-wrap">
-    <img class="hero-img" src="https://lorenzofant.github.io/images/bacteria.jpg" alt="Bacterial community">
+    <div class="hero-composer" id="hero-composer">
+      <img class="hero-bg" src="/images/bacteria/background.jpg" alt="Bacterial community">
+      <!-- bacteria_1 (192×387) tall -->
+      <img class="bact-sprite" src="/images/bacteria/bacteria_1.jpg" style="left:2%;top:8%;width:4%;transform:rotate(-25deg)">
+      <img class="bact-sprite" src="/images/bacteria/bacteria_1.jpg" style="left:78%;top:30%;width:4%;transform:rotate(40deg)">
+      <!-- bacteria_2 (153×131) small -->
+      <img class="bact-sprite" src="/images/bacteria/bacteria_2.jpg" style="left:16%;top:12%;width:4%">
+      <img class="bact-sprite" src="/images/bacteria/bacteria_2.jpg" style="left:88%;top:55%;width:4%">
+      <!-- bacteria_3 (177×153) -->
+      <img class="bact-sprite" src="/images/bacteria/bacteria_3.jpg" style="left:28%;top:52%;width:4.5%">
+      <img class="bact-sprite" src="/images/bacteria/bacteria_3.jpg" style="left:60%;top:10%;width:4.5%">
+      <!-- bacteria_4 (503×504) large -->
+      <img class="bact-sprite" src="/images/bacteria/bacteria_4.jpg" style="left:40%;top:5%;width:8%">
+      <img class="bact-sprite" src="/images/bacteria/bacteria_4.jpg" style="left:7%;top:42%;width:8%">
+      <!-- bacteria_5 (242×137) wide -->
+      <img class="bact-sprite" src="/images/bacteria/bacteria_5.jpg" style="left:57%;top:60%;width:6.5%">
+      <img class="bact-sprite" src="/images/bacteria/bacteria_5.jpg" style="left:30%;top:73%;width:6.5%">
+      <!-- bacteria_6 (290×240) -->
+      <img class="bact-sprite" src="/images/bacteria/bacteria_6.jpg" style="left:71%;top:5%;width:7%">
+      <img class="bact-sprite" src="/images/bacteria/bacteria_6.jpg" style="left:14%;top:58%;width:7%">
+      <!-- bacteria_7 (221×202) -->
+      <img class="bact-sprite" src="/images/bacteria/bacteria_7.jpg" style="left:47%;top:55%;width:5.5%">
+      <img class="bact-sprite" src="/images/bacteria/bacteria_7.jpg" style="left:89%;top:20%;width:5.5%">
+      <!-- bacteria_8 (141×164) small oval -->
+      <img class="bact-sprite" src="/images/bacteria/bacteria_8.jpg" style="left:34%;top:22%;width:4%;transform:rotate(15deg)">
+      <img class="bact-sprite" src="/images/bacteria/bacteria_8.jpg" style="left:67%;top:68%;width:4%;transform:rotate(-20deg)">
+      <!-- bacteria_9 (189×120) wide oval -->
+      <img class="bact-sprite" src="/images/bacteria/bacteria_9.jpg" style="left:5%;top:76%;width:5.5%">
+      <img class="bact-sprite" src="/images/bacteria/bacteria_9.jpg" style="left:82%;top:70%;width:5.5%">
+      <!-- bacteria_10 (146×136) small -->
+      <img class="bact-sprite" src="/images/bacteria/bacteria_10.jpg" style="left:50%;top:75%;width:3.5%">
+      <img class="bact-sprite" src="/images/bacteria/bacteria_10.jpg" style="left:93%;top:46%;width:3.5%">
+      <!-- bacteria_11 (220×259) tall -->
+      <img class="bact-sprite" src="/images/bacteria/bacteria_11.jpg" style="left:62%;top:35%;width:5%;transform:rotate(12deg)">
+      <img class="bact-sprite" src="/images/bacteria/bacteria_11.jpg" style="left:22%;top:8%;width:5%;transform:rotate(-8deg)">
+      <!-- bacteria_12 (125×150) small oval -->
+      <img class="bact-sprite" src="/images/bacteria/bacteria_12.jpg" style="left:53%;top:12%;width:3.5%">
+      <img class="bact-sprite" src="/images/bacteria/bacteria_12.jpg" style="left:44%;top:78%;width:3.5%">
+    </div>
     <div class="hero-accent"></div>
   </div>
 
@@ -177,65 +242,49 @@
     }
   });
 
-  // Bacteria: one per click, run-and-tumble to a random target, stays on screen
+  // Bacteria: one per click, run-and-tumble to a random target, stays on page
   (function () {
-    var hero = document.querySelector('.hero-img');
-    if (!hero) return;
+    var composer = document.getElementById('hero-composer');
+    if (!composer) return;
 
-    var IMGS = [
-      '/images/bacteria/bacteria_1.jpg',
-      '/images/bacteria/bacteria_2.jpg',
-      '/images/bacteria/bacteria_3.jpg',
-      '/images/bacteria/bacteria_4.jpg',
-      '/images/bacteria/bacteria_5.jpg',
-      '/images/bacteria/bacteria_6.jpg',
-      '/images/bacteria/bacteria_7.jpg',
-    ];
-    var DISPLAY_PX = 120; // display size for shorter image dimension (px)
-
+    var available = Array.prototype.slice.call(composer.querySelectorAll('.bact-sprite'));
     var active = [];
     var lastTs = null;
     var loopStarted = false;
 
-    hero.style.cursor = 'pointer';
+    composer.addEventListener('click', function () {
+      if (!available.length) return;
 
-    hero.addEventListener('click', function () {
-      var rect = hero.getBoundingClientRect();
+      var idx    = Math.floor(Math.random() * available.length);
+      var sprite = available.splice(idx, 1)[0];
+      var rect   = sprite.getBoundingClientRect();
+      var dw = rect.width, dh = rect.height;
+      var r  = Math.sqrt(dw * dw + dh * dh) / 2;
+      var cx = rect.left + dw / 2;
+      var cy = rect.top  + dh / 2;
       var vw = window.innerWidth, vh = window.innerHeight;
-      var src = IMGS[Math.floor(Math.random() * IMGS.length)];
+      var tx = r + Math.random() * (vw - 2 * r);
+      var ty = r + Math.random() * (vh - 2 * r);
+      var h  = Math.atan2(ty - cy, tx - cx) + (Math.random() - 0.5) * 1.2;
 
-      var probe = new Image();
-      probe.onload = function () {
-        var s  = DISPLAY_PX / Math.min(probe.naturalWidth, probe.naturalHeight);
-        var dw = Math.round(probe.naturalWidth  * s);
-        var dh = Math.round(probe.naturalHeight * s);
-        var r  = Math.sqrt(dw * dw + dh * dh) / 2;
+      sprite.style.visibility = 'hidden';
 
-        var cx = Math.max(r, Math.min(vw - r, rect.left + Math.random() * rect.width));
-        var cy = Math.max(r, Math.min(vh - r, rect.top  + Math.random() * rect.height));
-        var tx = r + Math.random() * (vw - 2 * r);
-        var ty = r + Math.random() * (vh - 2 * r);
-        var h  = Math.atan2(ty - cy, tx - cx) + (Math.random() - 0.5) * 1.2;
+      var el = document.createElement('img');
+      el.src = sprite.src;
+      el.style.cssText = 'position:fixed;pointer-events:none;z-index:1;'
+        + 'width:' + dw + 'px;height:' + dh + 'px;'
+        + 'left:' + (cx - dw / 2) + 'px;top:' + (cy - dh / 2) + 'px;'
+        + 'mix-blend-mode:multiply;transform-origin:center center;'
+        + 'will-change:left,top,transform;';
+      document.body.appendChild(el);
 
-        var el = document.createElement('img');
-        el.src = src;
-        el.style.cssText = 'position:fixed;pointer-events:none;z-index:1;'
-          + 'width:' + dw + 'px;height:' + dh + 'px;'
-          + 'left:' + (cx - dw / 2) + 'px;top:' + (cy - dh / 2) + 'px;'
-          + 'mix-blend-mode:multiply;transform-origin:center center;'
-          + 'will-change:left,top,transform;';
-        document.body.appendChild(el);
+      active.push({ el: el, cx: cx, cy: cy, dw: dw, dh: dh, r: r,
+        tx: tx, ty: ty, h: h, targetH: h,
+        speed: 120 + Math.random() * 80,
+        tTimer: 0.3 + Math.random() * 0.7,
+        stopped: false });
 
-        active.push({ el: el, cx: cx, cy: cy, dw: dw, dh: dh, r: r,
-          tx: tx, ty: ty,
-          h: h, targetH: h,
-          speed: 120 + Math.random() * 80,
-          tTimer: 0.3 + Math.random() * 0.7,
-          stopped: false });
-
-        if (!loopStarted) { loopStarted = true; requestAnimationFrame(loop); }
-      };
-      probe.src = src;
+      if (!loopStarted) { loopStarted = true; requestAnimationFrame(loop); }
     });
 
     function tumble(b) {

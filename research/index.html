@@ -274,7 +274,14 @@
         if (b.cy > vh - b.r) { b.cy = vh - b.r;  b.h = -b.h;          b.targetH = b.h; }
 
         var dx = b.cx - b.tx, dy = b.cy - b.ty;
-        if (dx * dx + dy * dy < 60 * 60) b.stopped = true;
+        if (dx * dx + dy * dy < 60 * 60) {
+          b.stopped = true;
+          b.el.style.position  = 'absolute';
+          b.el.style.left      = (b.cx - b.dw / 2 + window.scrollX) + 'px';
+          b.el.style.top       = (b.cy - b.dh / 2 + window.scrollY) + 'px';
+          b.el.style.transform = 'rotate(' + (b.h * 180 / Math.PI) + 'deg)';
+          continue;
+        }
 
         b.el.style.left      = (b.cx - b.dw / 2) + 'px';
         b.el.style.top       = (b.cy - b.dh / 2) + 'px';

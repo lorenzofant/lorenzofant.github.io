@@ -33,6 +33,9 @@
       .research-img { position: static; width: 100%; height: auto; transform: none; }
       .research-text-col { padding-bottom: 1rem; }
     }
+
+    /* Bacteria swim behind all page content (z-index:1) but above body background */
+    .page-outer { position: relative; z-index: 2; }
   </style>
 </head>
 <body>
@@ -196,8 +199,8 @@
 
     hero.style.cursor = 'pointer';
 
-    hero.addEventListener('click', function (e) {
-      var clickX = e.clientX, clickY = e.clientY;
+    hero.addEventListener('click', function () {
+      var rect = hero.getBoundingClientRect();
       var vw = window.innerWidth, vh = window.innerHeight;
       var src = IMGS[Math.floor(Math.random() * IMGS.length)];
 
@@ -208,15 +211,15 @@
         var dh = Math.round(probe.naturalHeight * s);
         var r  = Math.sqrt(dw * dw + dh * dh) / 2;
 
-        var cx = Math.max(r, Math.min(vw - r, clickX));
-        var cy = Math.max(r, Math.min(vh - r, clickY));
+        var cx = Math.max(r, Math.min(vw - r, rect.left + Math.random() * rect.width));
+        var cy = Math.max(r, Math.min(vh - r, rect.top  + Math.random() * rect.height));
         var tx = r + Math.random() * (vw - 2 * r);
         var ty = r + Math.random() * (vh - 2 * r);
         var h  = Math.atan2(ty - cy, tx - cx) + (Math.random() - 0.5) * 1.2;
 
         var el = document.createElement('img');
         el.src = src;
-        el.style.cssText = 'position:fixed;pointer-events:none;z-index:9999;'
+        el.style.cssText = 'position:fixed;pointer-events:none;z-index:1;'
           + 'width:' + dw + 'px;height:' + dh + 'px;'
           + 'left:' + (cx - dw / 2) + 'px;top:' + (cy - dh / 2) + 'px;'
           + 'mix-blend-mode:multiply;transform-origin:center center;'

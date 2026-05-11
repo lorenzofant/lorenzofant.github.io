@@ -271,7 +271,7 @@
     }
   });
 
-  // Bacteria: one per click, run-and-tumble to a random target, stays on page
+  // Bacteria: click releases all at once, run-and-tumble across full page with slight gravity
   (function () {
     var composer = document.getElementById('hero-composer');
     if (!composer) return;
@@ -280,38 +280,43 @@
     var active = [];
     var lastTs = null;
     var loopStarted = false;
+    var GRAVITY = 8; // px/s constant downward drift
 
     composer.addEventListener('click', function () {
       if (!available.length) return;
 
-      var idx    = Math.floor(Math.random() * available.length);
-      var sprite = available.splice(idx, 1)[0];
-      var rect   = sprite.getBoundingClientRect();
-      var dw = rect.width, dh = rect.height;
-      var r  = Math.sqrt(dw * dw + dh * dh) / 2;
-      var cx = rect.left + dw / 2;
-      var cy = rect.top  + dh / 2;
-      var vw = window.innerWidth, vh = window.innerHeight;
-      var tx = r + Math.random() * (vw - 2 * r);
-      var ty = r + Math.random() * (vh - 2 * r);
-      var h  = Math.atan2(ty - cy, tx - cx) + (Math.random() - 0.5) * 1.2;
+      var toRelease = available.splice(0);
+      var vw   = window.innerWidth;
+      var docH = document.documentElement.scrollHeight;
 
-      sprite.style.visibility = 'hidden';
+      toRelease.forEach(function (sprite) {
+        var rect = sprite.getBoundingClientRect();
+        var dw = rect.width, dh = rect.height;
+        var r  = Math.sqrt(dw * dw + dh * dh) / 2;
+        // Convert viewport rect to document coordinates
+        var cx = rect.left + window.scrollX + dw / 2;
+        var cy = rect.top  + window.scrollY + dh / 2;
+        var tx = r + Math.random() * (vw   - 2 * r);
+        var ty = r + Math.random() * (docH - 2 * r);
+        var h  = Math.atan2(ty - cy, tx - cx) + (Math.random() - 0.5) * 1.2;
 
-      var el = document.createElement('img');
-      el.src = sprite.src;
-      el.style.cssText = 'position:fixed;pointer-events:none;z-index:2;'
-        + 'width:' + dw + 'px;height:' + dh + 'px;'
-        + 'left:' + (cx - dw / 2) + 'px;top:' + (cy - dh / 2) + 'px;'
-        + 'mix-blend-mode:multiply;transform-origin:center center;'
-        + 'will-change:left,top,transform;';
-      document.body.appendChild(el);
+        sprite.style.visibility = 'hidden';
 
-      active.push({ el: el, cx: cx, cy: cy, dw: dw, dh: dh, r: r,
-        tx: tx, ty: ty, h: h, targetH: h,
-        speed: 120 + Math.random() * 80,
-        tTimer: 0.3 + Math.random() * 0.7,
-        stopped: false });
+        var el = document.createElement('img');
+        el.src = sprite.src;
+        el.style.cssText = 'position:absolute;pointer-events:none;z-index:2;'
+          + 'width:' + dw + 'px;height:' + dh + 'px;'
+          + 'left:' + (cx - dw / 2) + 'px;top:' + (cy - dh / 2) + 'px;'
+          + 'mix-blend-mode:multiply;transform-origin:center center;'
+          + 'will-change:left,top,transform;';
+        document.body.appendChild(el);
+
+        active.push({ el: el, cx: cx, cy: cy, dw: dw, dh: dh, r: r,
+          tx: tx, ty: ty, h: h, targetH: h,
+          speed: 120 + Math.random() * 80,
+          tTimer: 0.3 + Math.random() * 0.7,
+          stopped: false });
+      });
 
       if (!loopStarted) { loopStarted = true; requestAnimationFrame(loop); }
     });
@@ -328,7 +333,8 @@
       lastTs = ts;
       if (!dt) return;
 
-      var vw = window.innerWidth, vh = window.innerHeight;
+      var vw   = window.innerWidth;
+      var docH = document.documentElement.scrollHeight;
 
       for (var i = 0; i < active.length; i++) {
         var b = active[i];
@@ -337,33 +343,23 @@
         b.tTimer -= dt;
         if (b.tTimer <= 0) tumble(b);
 
-        // Smooth heading rotation toward targetH (5 rad/s max)
         var dh = Math.atan2(Math.sin(b.targetH - b.h), Math.cos(b.targetH - b.h));
         b.h += Math.abs(dh) < 5 * dt ? dh : Math.sign(dh) * 5 * dt;
 
-        // Rotational diffusion: drift both h and targetH together
         var drift = (Math.random() - 0.5) * 1.5 * dt;
         b.h       += drift;
         b.targetH += drift;
 
         b.cx += Math.cos(b.h) * b.speed * dt;
-        b.cy += Math.sin(b.h) * b.speed * dt;
+        b.cy += Math.sin(b.h) * b.speed * dt + GRAVITY * dt;
 
-        if (b.cx < b.r)      { b.cx = b.r;      b.h = Math.PI - b.h; b.targetH = b.h; }
-        if (b.cx > vw - b.r) { b.cx = vw - b.r; b.h = Math.PI - b.h; b.targetH = b.h; }
-        if (b.cy < b.r)      { b.cy = b.r;       b.h = -b.h;          b.targetH = b.h; }
-        if (b.cy > vh - b.r) { b.cy = vh - b.r;  b.h = -b.h;          b.targetH = b.h; }
+        if (b.cx < b.r)         { b.cx = b.r;         b.h = Math.PI - b.h; b.targetH = b.h; }
+        if (b.cx > vw - b.r)    { b.cx = vw - b.r;    b.h = Math.PI - b.h; b.targetH = b.h; }
+        if (b.cy < b.r)         { b.cy = b.r;          b.h = -b.h;          b.targetH = b.h; }
+        if (b.cy > docH - b.r)  { b.cy = docH - b.r;  b.h = -b.h;          b.targetH = b.h; }
 
         var dx = b.cx - b.tx, dy = b.cy - b.ty;
-        if (dx * dx + dy * dy < 60 * 60) {
-          b.stopped = true;
-          b.el.style.position  = 'absolute';
-          b.el.style.zIndex    = '2';
-          b.el.style.left      = (b.cx - b.dw / 2 + window.scrollX) + 'px';
-          b.el.style.top       = (b.cy - b.dh / 2 + window.scrollY) + 'px';
-          b.el.style.transform = 'rotate(' + (b.h * 180 / Math.PI) + 'deg)';
-          continue;
-        }
+        if (dx * dx + dy * dy < 60 * 60) b.stopped = true;
 
         b.el.style.left      = (b.cx - b.dw / 2) + 'px';
         b.el.style.top       = (b.cy - b.dh / 2) + 'px';

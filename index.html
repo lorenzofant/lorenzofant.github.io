@@ -9,9 +9,10 @@
   <link rel="icon" href="/images/jelly.png">
 
   <link rel="stylesheet" href="/dist/site.css">
+  <script>if(localStorage.getItem('dark')==='1')document.documentElement.classList.add('dark');</script>
   <style>
     /* ── Hero override ── */
-    .hero-img { height: 420px; object-position: center 55%; }
+    .hero-img { height: 420px; object-position: center 55%; cursor: pointer; transition: opacity 0.2s; }
 
     /* ── Page shell override ── */
     .page-outer { padding-bottom: calc(var(--footer-h) + 1.5rem); }
@@ -157,6 +158,27 @@
     if (!e.target.closest('.nav-menu-btn') && !e.target.closest('#nav-dropdown')) {
       document.getElementById('nav-dropdown').classList.remove('open');
     }
+  });
+
+  var heroImg = document.querySelector('.hero-img');
+  var DAY = 'https://lorenzofant.github.io/images/sicily_cut.jpg';
+  var NIGHT = 'https://lorenzofant.github.io/images/sicily_cut_notte.png';
+
+  if (document.documentElement.classList.contains('dark')) heroImg.src = NIGHT;
+
+  function applyDark(on) {
+    document.documentElement.classList.toggle('dark', on);
+    heroImg.src = on ? NIGHT : DAY;
+    localStorage.setItem('dark', on ? '1' : '0');
+  }
+
+  heroImg.addEventListener('click', function() {
+    var going = !document.documentElement.classList.contains('dark');
+    heroImg.style.opacity = '0';
+    setTimeout(function() {
+      applyDark(going);
+      heroImg.style.opacity = '';
+    }, 200);
   });
 </script>
 </body>

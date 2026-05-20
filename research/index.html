@@ -311,12 +311,15 @@
 
         sprite.style.visibility = 'hidden';
 
+        var dark = document.documentElement.classList.contains('dark');
         var el = document.createElement('img');
         el.src = sprite.src;
         el.style.cssText = 'position:absolute;pointer-events:none;z-index:2;'
           + 'width:' + dw + 'px;height:' + dh + 'px;'
           + 'left:' + (cx - dw / 2) + 'px;top:' + (cy - dh / 2) + 'px;'
-          + 'mix-blend-mode:multiply;transform-origin:center center;'
+          + 'mix-blend-mode:' + (dark ? 'screen' : 'multiply') + ';'
+          + (dark ? 'filter:invert(1);' : '')
+          + 'transform-origin:center center;'
           + 'will-change:left,top,transform;';
         document.body.appendChild(el);
 

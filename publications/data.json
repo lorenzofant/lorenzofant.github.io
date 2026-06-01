@@ -1,19 +1,19 @@
 {
-  "updated": "2026-05-07",
+  "updated": "2026-06-01",
   "publications": [
-    {
-      "title": "Global fishing activities and their impacts on marine biodiversity and coastal community well-being: quantitative analyses",
-      "authors": "Romina Wild and Donata Canu and Guido Sanguinetti and Cosimo Solidoro and Lorenzo Fant and Onofrio Mazzarisi",
-      "journal": "2026 Ocean Sciences Meeting",
-      "year": 2026,
-      "scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Fqnde5sAAAAJ&citation_for_view=Fqnde5sAAAAJ:eQOLeE2rZwMC"
-    },
     {
       "title": "Ecological predictability emerges at the population level in phytoplankton communities",
       "authors": "Lorenzo Fant and Moritz Klaassen and Onofrio Mazzarisi and Giulia Ghedini",
       "journal": "bioRxiv",
       "year": 2026,
       "scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Fqnde5sAAAAJ&citation_for_view=Fqnde5sAAAAJ:ufrVoPGSRksC"
+    },
+    {
+      "title": "Global fishing activities and their impacts on marine biodiversity and coastal community well-being: quantitative analyses",
+      "authors": "Romina Wild and Donata Canu and Guido Sanguinetti and Cosimo Solidoro and Lorenzo Fant and Onofrio Mazzarisi",
+      "journal": "2026 Ocean Sciences Meeting",
+      "year": 2026,
+      "scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Fqnde5sAAAAJ&citation_for_view=Fqnde5sAAAAJ:eQOLeE2rZwMC"
     },
     {
       "title": "Label invariance: a guiding principle for ecological models",

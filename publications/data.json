@@ -1,6 +1,13 @@
 {
-  "updated": "2026-06-01",
+  "updated": "2026-08-01",
   "publications": [
+    {
+      "title": "Eco-evolutionary dynamics lead to functionally robust and redundant communities",
+      "authors": "Lorenzo Fant and Iuri Macocco and Jacopo Grilli",
+      "journal": "PLOS Computational Biology",
+      "year": 2026,
+      "scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Fqnde5sAAAAJ&citation_for_view=Fqnde5sAAAAJ:roLk4NBRz8UC"
+    },
     {
       "title": "Ecological predictability emerges at the population level in phytoplankton communities",
       "authors": "Lorenzo Fant and Moritz Klaassen and Onofrio Mazzarisi and Giulia Ghedini",
@@ -9,11 +16,32 @@
       "scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Fqnde5sAAAAJ&citation_for_view=Fqnde5sAAAAJ:ufrVoPGSRksC"
     },
     {
+      "title": "Scaling laws and stochastic constraints in the functional architecture of genomes and ecosystems",
+      "authors": "Emanuele Pigani and Samir Suweis and Sandro Azaele and Daniele Iudicone and Davide Bernardi and Kobe Simoens and Annamaria Bupu and Lorenzo Fant and Jacopo Grilli",
+      "journal": "",
+      "year": 2026,
+      "scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Fqnde5sAAAAJ&citation_for_view=Fqnde5sAAAAJ:_FxGoFyzp5QC"
+    },
+    {
+      "title": "Competition dynamics and evolutionary strategies of bacteriocin-encoding bacteriophages",
+      "authors": "Akari Matsuki and Lorenzo Fant and Jaka J Lazar and Anna Dragoš and Jacopo Grilli",
+      "journal": "",
+      "year": 2026,
+      "scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Fqnde5sAAAAJ&citation_for_view=Fqnde5sAAAAJ:LkGwnXOMwfcC"
+    },
+    {
       "title": "Global fishing activities and their impacts on marine biodiversity and coastal community well-being: quantitative analyses",
       "authors": "Romina Wild and Donata Canu and Guido Sanguinetti and Cosimo Solidoro and Lorenzo Fant and Onofrio Mazzarisi",
-      "journal": "2026 Ocean Sciences Meeting",
+      "journal": "American Geophysical Union, Ocean Sciences Meeting",
       "year": 2026,
       "scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Fqnde5sAAAAJ&citation_for_view=Fqnde5sAAAAJ:eQOLeE2rZwMC"
+    },
+    {
+      "title": "Universal sublinear population growth density dependence unrelated to resource limitation",
+      "authors": "Onofrio Mazzarisi and Rossana Droghetti and Hebe Carmichael and Luca Ciandrini and Marco Cosentino Lagomarsino and Martina Dal Bello and Lorenzo Fant and Giulia Ghedini and Jacopo Grilli and Gabriel Yvon-Durocher and Daniel C Reuman",
+      "journal": "bioRxiv",
+      "year": 2025,
+      "scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Fqnde5sAAAAJ&citation_for_view=Fqnde5sAAAAJ:YsMSGLbcyi4C"
     },
     {
       "title": "Label invariance: a guiding principle for ecological models",
@@ -23,18 +51,18 @@
       "scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Fqnde5sAAAAJ&citation_for_view=Fqnde5sAAAAJ:Y0pCki6q_DkC"
     },
     {
+      "title": "Population growth is primarily inhibited by processes other than resource depletion, leaving a sublinear signature across species",
+      "authors": "O Mazzarisi and R Droghetti and S Barton and H Carmichael and L Ciandrini and MC Lagomarsino and M Dal Bello and L Fant and G Ghedini and J Grilli and G Yvon-Durocher and DC Reuman",
+      "journal": "",
+      "year": 2025,
+      "scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Fqnde5sAAAAJ&citation_for_view=Fqnde5sAAAAJ:Se3iqnhoufwC"
+    },
+    {
       "title": "Fluctuating Environments Favor Extreme Dormancy Strategies and Penalize Intermediate Ones",
       "authors": "Jorge Hidalgo and Lorenzo Fant and Rafael Rubio de Casas and Miguel A Muñoz",
       "journal": "arXiv preprint arXiv:2512.05856",
       "year": 2025,
       "scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Fqnde5sAAAAJ&citation_for_view=Fqnde5sAAAAJ:W7OEmFMy1HYC"
-    },
-    {
-      "title": "Universal sublinear population growth density dependence unrelated to resource limitation",
-      "authors": "Onofrio Mazzarisi and Rossana Droghetti and Hebe Carmichael and Luca Ciandrini and Marco Cosentino Lagomarsino and Martina Dal Bello and Lorenzo Fant and Giulia Ghedini and Jacopo Grilli and Gabriel Yvon-Durocher and Daniel C Reuman",
-      "journal": "bioRxiv",
-      "year": 2025,
-      "scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Fqnde5sAAAAJ&citation_for_view=Fqnde5sAAAAJ:YsMSGLbcyi4C"
     },
     {
       "title": "Biomass competition connects individual and community scaling patterns",
@@ -56,13 +84,6 @@
       "journal": "",
       "year": 2022,
       "scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Fqnde5sAAAAJ&citation_for_view=Fqnde5sAAAAJ:qjMakFHDy7sC"
-    },
-    {
-      "title": "Eco-evolutionary dynamics lead to functionally robust and redundant communities",
-      "authors": "Lorenzo Fant and Iuri Macocco and Jacopo Grilli",
-      "journal": "BioRxiv",
-      "year": 2021,
-      "scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Fqnde5sAAAAJ&citation_for_view=Fqnde5sAAAAJ:9yKSN-GCB0IC"
     },
     {
       "title": "Entangling macroscopic diamonds at room temperature: Bounds on the continuous-spontaneous-localization parameters",
